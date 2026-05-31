@@ -4,22 +4,76 @@
 @source "../../../content/**/*";
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
-  --font-serif: 'Instrument Serif', serif;
+  /* Typography – Outfit for headings, Inter for body */
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  /* Brand colors – Mentora orange/red palette */
+  --color-mentora-50: #fef3f1;
+  --color-mentora-100: #fee5e0;
+  --color-mentora-200: #ffcfc6;
+  --color-mentora-300: #fdb09f;
+  --color-mentora-400: #fa8468;
+  --color-mentora-500: #f6512f;
+  --color-mentora-600: #e71407;
+  --color-mentora-700: #c22c1a;
+  --color-mentora-800: #a0291b;
+  --color-mentora-900: #86291d;
+  --color-mentora-950: #49110a;
+
+  /* Dark neutral palette based on #121619 */
+  --color-midnight-50: #f4f6f7;
+  --color-midnight-100: #e3e7ea;
+  --color-midnight-200: #c9d1d7;
+  --color-midnight-300: #a4b0ba;
+  --color-midnight-400: #778796;
+  --color-midnight-500: #5c6c7b;
+  --color-midnight-600: #4f5b69;
+  --color-midnight-700: #444e58;
+  --color-midnight-800: #3c434c;
+  --color-midnight-900: #1e2328;
+  --color-midnight-950: #121619;
 }
 
 :root {
   --ui-container: var(--container-4xl);
-
-  ::selection {
-    color: #282a30;
-    background-color: #c8c8c8;
-  }
 }
 
-.dark {
-  ::selection {
-    color: #ffffff;
-    background-color: #474747;
-  }
+/* Heading font utility */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Selection colors */
+::selection {
+  color: #ffffff;
+  background-color: rgba(246, 81, 47, 0.4);
+}
+
+/* Brand gradient utility */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #F6512F, #E71407);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #F6512F, #E71407);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(30, 35, 40, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(246, 81, 47, 0.15);
+  border-radius: 1rem;
+}
+
+/* Inner glow for buttons */
+.btn-glow {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(246, 81, 47, 0.3);
 }

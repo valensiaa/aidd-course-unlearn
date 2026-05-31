@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-og-image',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxt/hints',
+    '@nuxt/test-utils'
   ],
 
   devtools: {
@@ -15,6 +17,10 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  colorMode: {
+    preference: 'dark'
+  },
 
   compatibilityDate: '2024-11-01',
 
