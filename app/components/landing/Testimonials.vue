@@ -8,18 +8,21 @@ defineProps<{
 
 <template>
   <UPageSection
+    :title="page.testimonials.title"
+    :description="page.testimonials.description"
     :ui="{
-      container: 'px-0 pt-0!'
+      title: 'text-2xl sm:text-3xl lg:text-3xl font-medium',
+      description: 'mt-3 text-sm sm:text-md text-muted'
     }"
   >
     <UCarousel
       v-slot="{ item }"
-      :items="page.testimonials"
+      :items="page.testimonials.items"
       :autoplay="{ delay: 4000 }"
       loop
       dots
       :ui="{
-        viewport: '-mx-4 sm:-mx-12 lg:-mx-16 bg-elevated/50 max-w-(--ui-container)'
+        viewport: '-mx-4 sm:-mx-12 lg:-mx-16 bg-elevated/50 max-w-(--ui-container) rounded-xl'
       }"
     >
       <UPageCTA

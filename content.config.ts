@@ -40,25 +40,32 @@ export default defineContentConfig({
       type: 'page',
       source: 'index.yml',
       schema: z.object({
-        hero: z.object({
+        hero: createBaseSchema().extend({
+          headline: z.string().optional(),
           links: z.array(createButtonSchema()),
           images: z.array(createImageSchema())
         }),
-        about: createBaseSchema(),
-        experience: createBaseSchema().extend({
-          items: z.array(z.object({
-            date: z.date(),
-            position: z.string(),
-            company: z.object({
-              name: z.string(),
-              url: z.string(),
-              logo: z.string().editor({ input: 'icon' }),
-              color: z.string()
-            })
+        howItWorks: createBaseSchema().extend({
+          steps: z.array(z.object({
+            icon: z.string().editor({ input: 'icon' }),
+            title: z.string(),
+            description: z.string()
           }))
         }),
-        testimonials: z.array(createTestimonialSchema()),
-        blog: createBaseSchema(),
+        teachers: createBaseSchema().extend({
+          items: z.array(z.object({
+            name: z.string(),
+            subject: z.string(),
+            bio: z.string(),
+            rating: z.number(),
+            reviews: z.number(),
+            price: z.string(),
+            avatar: createImageSchema()
+          }))
+        }),
+        testimonials: createBaseSchema().extend({
+          items: z.array(createTestimonialSchema())
+        }),
         faq: createBaseSchema().extend({
           categories: z.array(
             z.object({
@@ -70,6 +77,9 @@ export default defineContentConfig({
                 })
               )
             }))
+        }),
+        cta: createBaseSchema().extend({
+          links: z.array(createButtonSchema())
         })
       })
     }),

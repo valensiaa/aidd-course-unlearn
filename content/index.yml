@@ -1,120 +1,187 @@
 seo:
-  title: "Emma Thompson - UX/UI Designer"
-  description: "Welcome to my portfolio! I'm Emma Thompson, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: "Hey, I'm Emma Thompson UX/UI Designer"
-description: "I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity."
+  title: "Mentora — Learn Anything, One-on-One with Expert Teachers"
+  description: "Mentora connects curious students with passionate teachers for personal, live online video classes. Find your perfect tutor, book a time that works, and learn at your own pace."
+title: "Learn anything, one-on-one with a teacher who gets you"
+description: "Mentora connects you with passionate, vetted teachers for live online video classes — built around your goals, your schedule, and your pace."
 hero:
+  title: "Learn anything, one-on-one with a teacher who gets you"
+  description: "Mentora connects you with passionate, vetted teachers for live online video classes — built around your goals, your schedule, and your pace."
+  headline: "Personal online classes, live over video"
   links:
-    - label: "Use this template"
-      to: https://github.com/nuxt-ui-templates/portfolio
+    - label: "Find a teacher"
+      to: "#teachers"
+      icon: "i-lucide-search"
+      color: "primary"
+      size: "lg"
+    - label: "Become a teacher"
+      to: "#cta"
       color: "neutral"
+      variant: "subtle"
+      size: "lg"
   images:
     - src: /hero/random-1.avif
-      alt: Random Image 1
+      alt: A student learning online
     - src: /hero/random-2.avif
-      alt: Random Image 2
+      alt: A teacher in a video class
     - src: /hero/random-3.avif
-      alt: Random Image 3
+      alt: Online lesson in progress
     - src: /hero/random-4.avif
-      alt: Random Image 4
+      alt: Student taking notes
     - src: /hero/random-5.avif
-      alt: Random Image 5
+      alt: One-on-one tutoring session
     - src: /hero/random-6.avif
-      alt: Random Image 6
+      alt: Teacher explaining a concept
     - src: /hero/random-7.avif
-      alt: Random Image 7
+      alt: Student practicing a language
     - src: /hero/random-8.avif
-      alt: Random Image 8
+      alt: Music lesson over video
     - src: /hero/random-9.avif
-      alt: Random Image 9
-about:
-  title: "About Me"
-  description: |
-    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
-experience:
-  title: Work Experience
+      alt: Focused learning at home
+howItWorks:
+  title: How Mentora works
+  description: "From first search to your first lesson in minutes. No subscriptions, no commitments — just learning that fits your life."
+  steps:
+    - icon: i-lucide-search
+      title: Find your teacher
+      description: "Browse vetted teachers by subject, price, language, and availability. Read real reviews and watch intro videos to find your match."
+    - icon: i-lucide-calendar-check
+      title: Book a time that works
+      description: "Pick a slot from your teacher's live calendar. Reschedule for free up to 12 hours before — life happens, and that's okay."
+    - icon: i-lucide-video
+      title: Join your live class
+      description: "Meet face-to-face in our built-in video classroom — no downloads, no links to chase. Share screens, notes, and a whiteboard in real time."
+    - icon: i-lucide-trending-up
+      title: Track your progress
+      description: "Set goals with your teacher, review lesson notes, and watch yourself improve session after session."
+teachers:
+  title: Meet a few of our teachers
+  description: "Thousands of passionate experts teach on Mentora — from conversational Spanish to calculus to guitar. Here are a few favorites."
   items:
-    - position: "Brand Designer at"
-      date: "2023 - Present"
-      company:
-        name: Nuxt
-        logo: "i-simple-icons-nuxtdotjs"
-        url: "https://nuxt.com"
-        color: "#00DC82"
-    - position: "Assets Designer at"
-      date: "2022 - 2023"
-      company:
-        name: Raycast
-        logo: "i-simple-icons-raycast"
-        url: "https://raycast.com"
-        color: "#FF6363"
-    - position: "Senior UX/UI Designer at"
-      date: "2020 - 2021"
-      company:
-        name: Linear
-        logo: "i-simple-icons-linear"
-        url: "https://linear.app"
-        color: "#5E6AD2"
+    - name: Sofía Herrera
+      subject: Spanish & Conversation
+      bio: "Native speaker from Madrid with 8 years of teaching experience. Relaxed, conversation-first lessons for every level."
+      rating: 4.9
+      reviews: 412
+      price: "$24 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Sofía Herrera
+    - name: David Okafor
+      subject: Mathematics & Physics
+      bio: "PhD candidate who makes hard ideas click. Specializes in exam prep, calculus, and building real intuition."
+      rating: 5.0
+      reviews: 287
+      price: "$32 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: David Okafor
+    - name: Mei Tanaka
+      subject: Japanese for Beginners
+      bio: "Patient, structured lessons from hiragana to first conversations. Lots of culture, lots of encouragement."
+      rating: 4.9
+      reviews: 198
+      price: "$28 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Mei Tanaka
+    - name: Liam O'Connor
+      subject: Guitar & Music Theory
+      bio: "Touring musician turned teacher. From your first chords to writing your own songs, at any age."
+      rating: 4.8
+      reviews: 326
+      price: "$26 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Liam O'Connor
+    - name: Priya Nair
+      subject: Python & Data Science
+      bio: "Software engineer who teaches coding the way she wishes she'd learned it — hands-on, project by project."
+      rating: 5.0
+      reviews: 241
+      price: "$38 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Priya Nair
+    - name: Marcus Bennett
+      subject: IELTS & English Writing
+      bio: "Former university lecturer focused on essays, fluency, and exam confidence. Honest feedback, real results."
+      rating: 4.9
+      reviews: 374
+      price: "$30 / hr"
+      avatar:
+        src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Marcus Bennett
 testimonials:
-  - quote: "Emma's approach to UX design completely transformed our product. She has a rare ability to balance beautiful aesthetics with functional simplicity. The redesign not only looked better, but it reduced our customer support tickets by 40% and increased conversion rates across all key metrics."
-    author:
-      name: 'Sarah Chen'
-      description: 'Product Director at Bloom Finance'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Working with Emma was the best decision we made for our startup. She didn't just deliver designs—she challenged our assumptions, conducted thorough user research, and created an experience that truly resonated with our audience. Her technical knowledge of front-end development meant the handoff to our engineering team was seamless."
-    author:
-      name: 'Michael Rodriguez'
-      description: 'Co-founder of Wavelength Music'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-  - quote: "Emma stands out in her ability to translate complex sustainability data into intuitive interfaces. Her work on EcoTrack wasn't just visually stunning—it fundamentally changed how our users interact with environmental information. She approaches each problem with both creativity and analytical rigor, which is exactly what we needed."
-    author:
-      name: 'Dr. Aisha Johnson'
-      description: 'Chief Innovation Officer at GreenTech Solutions'
-      avatar:
-        src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=40&h=40&q=80'
-        srcset: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=80&h=80&q=80 2x'
-blog:
-  title: "Latest Articles"
-  description: "Some of my recent thoughts"
+  title: Loved by learners everywhere
+  description: "Real stories from students who found the right teacher on Mentora."
+  items:
+    - quote: "I'd tried apps and group classes for years and barely improved. Three months with my Mentora teacher and I'm actually holding conversations in Spanish. Having someone focused entirely on me changed everything."
+      author:
+        name: 'Hannah Whitfield'
+        description: 'Learning Spanish'
+        avatar:
+          src: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=facearea&facepad=2&w=80&h=80&q=80'
+    - quote: "My son was falling behind in math and losing confidence. His teacher on Mentora was patient, kind, and met him exactly where he was. His last report card was the best he's ever had."
+      author:
+        name: 'Daniel Pereira'
+        description: 'Parent of a Year 10 student'
+        avatar:
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=80&h=80&q=80'
+    - quote: "Booking is effortless and the video classroom just works — whiteboard, screen sharing, everything in one place. I prepped for my coding interview in two weeks and got the offer."
+      author:
+        name: 'Aisha Rahman'
+        description: 'Switching careers into tech'
+        avatar:
+          src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=facearea&facepad=2&w=80&h=80&q=80'
 faq:
-  title: Frequently Asked Questions
-  description: Answers to common questions about my process and services.
+  title: Frequently asked questions
+  description: "Everything you need to know before your first lesson on Mentora."
   categories:
-    - title: Services & Process
+    - title: For Students
       questions:
-        - label: What services do you offer?
+        - label: How do I find the right teacher?
           content: |
-            I specialize in UX/UI design and front-end development. This includes user research, wireframing, interactive prototyping, creating intuitive user interfaces, building responsive websites and web applications (especially with Vue.js/Nuxt.js), and developing design systems. My goal is to create seamless digital experiences from concept to deployment.
-        - label: What is your design process like?
+            Browse our teachers by subject, price, language, and availability. Every teacher has a detailed profile with reviews, qualifications, and a short intro video, so you can get a feel for their style before booking. Most students find their match in just a few minutes — and if your first lesson isn't a fit, you can try another teacher at no extra cost.
+        - label: What do I need for a class?
           content: |
-            My process is collaborative and iterative, typically involving stages like Discovery & Research, Ideation & Prototyping, User Testing, Visual Design, and close collaboration with development teams during implementation. I tailor the process based on project needs, always focusing on user-centered solutions.
-        - label: Do you work with startups?
+            Just a laptop or phone with a camera, a microphone, and an internet connection. Our video classroom runs right in your browser — there's nothing to download or install. We recommend a quiet space and a pair of headphones for the best experience.
+        - label: Can I reschedule or cancel a lesson?
           content: |
-            Absolutely! I enjoy working with startups to help shape their product vision and create user-friendly interfaces from the ground up. I can adapt my process to fit the fast-paced startup environment.
-    - title: Pricing & Timelines
+            Yes. You can reschedule or cancel for free up to 12 hours before your lesson. Inside that window, the lesson is charged so your teacher's time is respected. You can manage all of your upcoming lessons from your dashboard.
+        - label: How much do lessons cost?
+          content: |
+            Teachers set their own rates, which are shown clearly on every profile — typically between $15 and $45 per hour depending on subject and experience. You only pay for the lessons you book; there are no subscriptions or hidden fees.
+    - title: For Teachers
       questions:
-        - label: How much does a project typically cost?
+        - label: How do I start teaching on Mentora?
           content: |
-            Project costs vary based on scope, complexity, features, and timeline. For comprehensive UX/UI design and front-end development projects, my engagements typically start around $5,000, with average projects ranging between $8,000 and $25,000. For consulting or specific design tasks, my day rate is $700.
-        - label: What are your payment terms?
+            Create a teacher profile, tell us what you teach, and set your own schedule and rates. Our team reviews every application to keep quality high. Once you're approved, students can find and book you right away.
+        - label: How and when do I get paid?
           content: |
-            I generally require a 40% deposit to schedule the project and begin work, with the remaining 60% due upon successful project completion and delivery. I accept payments via bank transfer and Stripe.
-        - label: How long does a typical project take?
+            You earn for every completed lesson, and Mentora handles all payments securely. Payouts are sent to your bank account or PayPal on a weekly basis, with a clear breakdown of every lesson in your dashboard.
+        - label: Do I have to commit to set hours?
           content: |
-            Timelines depend heavily on the project's scope and complexity. Smaller projects might take 3-4 weeks, while larger, more involved projects can range from 2 to 4 months. I always provide a detailed timeline estimate after the initial discovery phase.
-        - label: Do you offer retainers or ongoing support?
-          content: |
-            Yes, for clients needing ongoing design support, feature development, or maintenance, I offer monthly retainer options tailored to specific needs. Let's discuss if this is something you're interested in.
-    - title: About Me
+            Not at all. You're in full control of your calendar — teach a few hours a week or build it into a full-time practice. You can update your availability anytime.
+    - title: Payments & Safety
       questions:
-        - label: What do you enjoy most about your work?
+        - label: Is it safe to learn online with a stranger?
           content: |
-            I love the challenge of solving complex problems through design and technology. It's incredibly rewarding to see people interact with something I've created and find it genuinely useful and easy to navigate. Bridging the gap between user needs and technical possibilities is what truly excites me.
-        - label: What are your hobbies outside of work?
+            Every teacher on Mentora is identity-verified and reviewed by our team before they can teach. All lessons happen inside our monitored video classroom, and student reviews keep the community honest. For under-18 learners, we recommend a parent helps set up the account.
+        - label: What payment methods do you accept?
           content: |
-            When I'm not designing or coding, I enjoy exploring Boston's neighborhoods, trying out new coffee shops, and hiking in the nearby reservations. I'm also passionate about photography and occasionally contribute to open-source projects.
+            We accept all major credit and debit cards as well as PayPal. Payments are processed securely through Stripe, and your card details are never stored on our servers.
+cta:
+  title: Your next breakthrough is one lesson away
+  description: "Join thousands of students and teachers learning together on Mentora. Find your teacher today — or share what you know with the world."
+  links:
+    - label: "Find a teacher"
+      to: "#teachers"
+      icon: "i-lucide-search"
+      color: "primary"
+      size: "lg"
+    - label: "Become a teacher"
+      to: "mailto:hello@mentora.com?subject=I want to teach on Mentora"
+      icon: "i-lucide-graduation-cap"
+      color: "neutral"
+      variant: "subtle"
+      size: "lg"
