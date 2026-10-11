@@ -1,142 +1,154 @@
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
-defineProps<{
+const props = defineProps<{
   page: IndexCollectionItem
 }>()
 
+// Last four words of the title get the brand gradient ("teacher who gets you")
+const titleParts = computed(() => {
+  const words = props.page.hero.title.split(' ')
+  const split = Math.max(words.length - 4, 0)
+  return {
+    // Break the lead after its comma, like the mockup: "Learn anything," / "one-on-one with a"
+    lead: words.slice(0, split).join(' ').split(/(?<=,)\s+/),
+    highlight: words.slice(split).join(' ')
+  }
+})
+
+const avatars = computed(() => props.page.teachers?.items?.slice(0, 3).map(item => item.avatar) ?? [])
+
+const [primaryLink, secondaryLink] = props.page.hero.links
+
 const motionInitial = {
-  scale: 1.1,
+  y: 24,
   opacity: 0,
-  filter: 'blur(20px)'
+  filter: 'blur(12px)'
 }
 const motionAnimate = {
-  scale: 1,
+  y: 0,
   opacity: 1,
   filter: 'blur(0px)'
 }
 </script>
 
 <template>
-  <UPageHero
-    :ui="{
-      headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-3xl mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
-    }"
-  >
-    <template #headline>
-      <Motion
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: 0.1 }"
-      >
-        <UBadge
-          v-if="page.hero.headline"
-          color="primary"
-          variant="subtle"
-          size="lg"
-          class="rounded-full"
+  <section class="relative isolate overflow-x-clip">
+    <!-- Corner blob: top-right (rotated) up to tablet, bottom-left spilling out of the hero on desktop -->
+    <div class="pointer-events-none absolute top-0 right-0 -z-10 aspect-[3/2] w-[60vw] max-w-[520px] rotate-180 opacity-80 lg:top-auto lg:right-auto lg:bottom-0 lg:left-0 lg:translate-y-1/2 lg:rotate-0 lg:[mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
+      <LandingHeroCornerBlob class="size-full" />
+    </div>
+
+    <UContainer class="max-w-7xl grid items-center gap-16 pt-24 pb-16 sm:py-24 lg:grid-cols-[1fr_1.05fr] lg:gap-10 lg:py-28">
+      <!-- Copy -->
+      <div class="max-w-xl">
+        <Motion
+          :initial="motionInitial"
+          :animate="motionAnimate"
+          :transition="{ duration: 0.6, delay: 0.1 }"
         >
-          <template #leading>
+          <NuxtLink
+            to="#teachers"
+            class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-midnight-900/60 py-1.5 pl-1.5 pr-4 text-xs text-white sm:text-sm backdrop-blur transition hover:border-mentora-500/70"
+          >
+            <span class="flex -space-x-2.5">
+              <NuxtImg
+                v-for="(avatar, index) in avatars"
+                :key="index"
+                :src="avatar.src"
+                :alt="avatar.alt"
+                width="36"
+                height="36"
+                class="size-7 rounded-full sm:size-9 object-cover ring-2 ring-midnight-950"
+              />
+            </span>
+            <span>
+              12,000+ passionate, <span class="text-mentora-400">vetted teachers</span>
+            </span>
             <UIcon
-              name="i-lucide-sparkles"
-              class="size-4"
+              name="i-lucide-chevron-right"
+              class="size-4 text-mentora-400 transition group-hover:translate-x-0.5"
             />
-          </template>
-          {{ page.hero.headline }}
-        </UBadge>
-      </Motion>
-    </template>
+          </NuxtLink>
+        </Motion>
 
-    <template #title>
-      <Motion
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: 0.1 }"
-      >
-        {{ page.hero.title }}
-      </Motion>
-    </template>
-
-    <template #description>
-      <Motion
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: 0.3 }"
-      >
-        {{ page.hero.description }}
-      </Motion>
-    </template>
-
-    <template #links>
-      <Motion
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: 0.5 }"
-      >
-        <div
-          v-if="page.hero.links"
-          class="flex flex-wrap items-center justify-center gap-2"
+        <Motion
+          :initial="motionInitial"
+          :animate="motionAnimate"
+          :transition="{ duration: 0.6, delay: 0.2 }"
         >
-          <UButton
-            v-for="(link, index) in page.hero.links"
-            :key="index"
-            v-bind="link"
+          <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <span
+              v-for="(line, index) in titleParts.lead"
+              :key="index"
+              class="block"
+            >{{ line }}</span>
+            <span class="text-gradient-brand">{{ titleParts.highlight }}</span>
+          </h1>
+        </Motion>
+
+        <Motion
+          :initial="motionInitial"
+          :animate="motionAnimate"
+          :transition="{ duration: 0.6, delay: 0.3 }"
+        >
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-midnight-300">
+            {{ page.hero.description }}
+          </p>
+        </Motion>
+
+        <Motion
+          :initial="motionInitial"
+          :animate="motionAnimate"
+          :transition="{ duration: 0.6, delay: 0.4 }"
+        >
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <UButton
+              v-if="primaryLink"
+              :to="primaryLink.to"
+              :icon="primaryLink.icon"
+              trailing-icon="i-lucide-arrow-right"
+              size="xl"
+              class="bg-gradient-brand btn-glow rounded-full px-8 py-4 text-base font-semibold text-white hover:opacity-90"
+            >
+              {{ primaryLink.label }}
+            </UButton>
+            <UButton
+              v-if="secondaryLink"
+              :to="secondaryLink.to"
+              color="neutral"
+              variant="outline"
+              size="xl"
+              class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 hover:bg-white/5"
+            >
+              {{ secondaryLink.label }}
+            </UButton>
+          </div>
+        </Motion>
+      </div>
+
+      <!-- Visual -->
+      <Motion
+        :initial="{ scale: 0.95, opacity: 0, filter: 'blur(20px)' }"
+        :animate="{ scale: 1, opacity: 1, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.8, delay: 0.3 }"
+        class="relative mx-auto w-full max-w-xl lg:max-w-none"
+      >
+        <LandingHeroBlob class="pointer-events-none absolute -inset-x-[12%] -top-[18%] -bottom-[8%] -z-10 h-[126%] w-[124%] max-w-none" />
+        <div class="photo-glow aspect-[9/8]">
+          <NuxtImg
+            src="/hero/hero-student@2x.jpg"
+            alt="A student smiling while taking notes during an online class"
+            width="620"
+            height="548"
+            densities="x1 x2"
+            format="webp"
+            preload
+            fetchpriority="high"
+            class="size-full object-cover"
           />
         </div>
       </Motion>
-
-      <Motion
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: 0.7 }"
-      >
-        <div class="mt-6 flex items-center justify-center gap-x-6 gap-y-2 flex-wrap text-sm text-muted">
-          <span class="flex items-center gap-1.5">
-            <UIcon
-              name="i-lucide-users"
-              class="size-4 text-primary"
-            />
-            12,000+ teachers
-          </span>
-          <span class="flex items-center gap-1.5">
-            <UIcon
-              name="i-lucide-book-open"
-              class="size-4 text-primary"
-            />
-            300+ subjects
-          </span>
-          <span class="flex items-center gap-1.5">
-            <UIcon
-              name="i-lucide-star"
-              class="size-4 text-primary"
-            />
-            4.9 average rating
-          </span>
-        </div>
-      </Motion>
-    </template>
-
-    <UMarquee
-      pause-on-hover
-      class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
-    >
-      <Motion
-        v-for="(img, index) in page.hero.images"
-        :key="index"
-        :initial="motionInitial"
-        :animate="motionAnimate"
-        :transition="{ duration: 0.6, delay: index * 0.1 }"
-      >
-        <NuxtImg
-          width="234"
-          height="234"
-          class="rounded-lg aspect-square object-cover"
-          :class="index % 2 === 0 ? '-rotate-2' : 'rotate-2'"
-          v-bind="img"
-        />
-      </Motion>
-    </UMarquee>
-  </UPageHero>
+    </UContainer>
+  </section>
 </template>
