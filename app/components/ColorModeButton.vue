@@ -13,32 +13,30 @@ const startViewTransition = (event: MouseEvent) => {
     return
   }
 
-  const x = event.clientX
-  const y = event.clientY
-  const endRadius = Math.hypot(
-    Math.max(x, window.innerWidth - x),
-    Math.max(y, window.innerHeight - y)
-  )
+  const keyframes = circleRevealKeyframes(event.clientX, event.clientY, window.innerWidth, window.innerHeight)
 
-  const transition = document.startViewTransition(() => {
+  // Freeze color transitions so the new theme is captured fully applied, not mid-fade
+  const root = document.documentElement
+  root.classList.add('theme-switching')
+
+  const transition = document.startViewTransition(async () => {
     switchTheme()
+    // The color-mode module swaps the <html> class in a watcher; wait for it so the
+    // new snapshot shows the new theme instead of flipping halfway through the reveal
+    await nextTick()
   })
 
+  transition.finished
+    .catch(() => {})
+    .finally(() => root.classList.remove('theme-switching'))
+
   transition.ready.then(() => {
-    const duration = 600
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${endRadius}px at ${x}px ${y}px)`
-        ]
-      },
-      {
-        duration: duration,
-        easing: 'cubic-bezier(.76,.32,.29,.99)',
-        pseudoElement: '::view-transition-new(root)'
-      }
-    )
+    document.documentElement.animate(keyframes, {
+      ...CIRCLE_REVEAL_TIMING,
+      pseudoElement: '::view-transition-new(root)'
+    })
+  }).catch(() => {
+    // Skipped (e.g. tab hidden or a second click mid-reveal): the theme still switches
   })
 }
 </script>
@@ -72,5 +70,10 @@ const startViewTransition = (event: MouseEvent) => {
 }
 ::view-transition-old(root) {
   z-index: 1;
+}
+
+.theme-switching,
+.theme-switching * {
+  transition: none !important;
 }
 </style>

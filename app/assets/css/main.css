@@ -33,6 +33,23 @@
   --color-midnight-800: #3c434c;
   --color-midnight-900: #1e2328;
   --color-midnight-950: #121619;
+
+  /* Default for every transition utility (incl. Nuxt UI buttons/links) */
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: ease-in;
+}
+
+/* Hoverable elements without their own transition utility still ease in */
+@layer base {
+  a,
+  button,
+  summary,
+  [role="button"],
+  [role="tab"] {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, translate, scale, rotate;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+  }
 }
 
 :root {
@@ -71,54 +88,23 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 1rem;
 }
 
-/* Hero photo frame – warm tint, inner edge glow, rim light and outer glow */
-.photo-glow {
+/* Hero photo frame – rounded, with a thin warm rim */
+.photo-frame {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border-radius: 1.25rem;
-  box-shadow:
-    0 0 0 1px rgba(250, 132, 104, 0.45),
-    0 0 24px rgba(246, 81, 47, 0.45),
-    0 0 80px rgba(231, 20, 7, 0.25);
+  box-shadow: 0 0 0 1px rgba(250, 132, 104, 0.45);
 }
 
-.photo-glow > img {
+.photo-frame > img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.1) contrast(1.08);
-}
-
-/* Warm color grade over the whole photo */
-.photo-glow::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(160deg, #ffe0c4, #ffcfa8 55%, #f0a782);
-  mix-blend-mode: multiply;
-}
-
-/* Orange inner glow along the edges */
-.photo-glow::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  border-radius: inherit;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-    inset 0 0 14px rgba(246, 81, 47, 0.6),
-    inset 0 0 36px rgba(246, 81, 47, 0.18);
 }
 
 /* Inner glow for buttons */
 .btn-glow {
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.2),
-    0 0 20px rgba(246, 81, 47, 0.3);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }

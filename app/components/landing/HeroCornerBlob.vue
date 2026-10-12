@@ -1,42 +1,97 @@
 <script setup lang="ts">
-// Animated version of /hero/blob-corner.svg: breathes and reshapes while staying
-// anchored to its corner (the path's bottom-left, which the parent may rotate).
+// Faceted corner blob: breathes and reshapes while staying anchored to its corner
+// (the viewBox's bottom-left, which the parent may rotate). An open outline follows its
+// curved edge 10px outside, running off the cut edges. `fast` speeds it up.
+const props = defineProps<{
+  fast?: boolean
+}>()
+
 const id = useId()
+const time = useBlobClock(() => props.fast)
+
+// Gap between the blob and its outline, in screen pixels
+const OUTLINE_GAP_PX = 10
+const svg = useTemplateRef<SVGSVGElement>('svg')
+const unitsPerPx = useSvgUnitsPerPx(svg, { width: 600, height: 400 }, 520)
+
+const CORNER = { x: 0, y: 400, z: 0 }
+const RADIUS = 355
+const LIGHT = { x: -0.3, y: -0.7, z: 0.65 }
+const STOPS: ColorStop[] = [
+  [0, '#2A0905'],
+  [0.4, '#49110A'],
+  [0.62, '#86291D'],
+  [0.8, '#C22C1A'],
+  [1, '#F6512F']
+]
+
+const mesh = buildFacetMesh([
+  { frac: 0, count: 1 },
+  { frac: 0.38, count: 4 },
+  { frac: 0.7, count: 6 },
+  { frac: 1, count: 9 }
+], 23, { start: -Math.PI / 2, end: 0 })
+
+// Extend the line through `a` and `b` past `b` until it hits x = `x` (or y = `y`), so the
+// outline runs right up to the blob's cut edges instead of stopping short of them
+function extendTo(a: Vec3, b: Vec3, edge: { x: number } | { y: number }): Vec3 {
+  const along = 'x' in edge ? (edge.x - a.x) / (b.x - a.x || 1e-6) : (edge.y - a.y) / (b.y - a.y || 1e-6)
+  return { x: a.x + (b.x - a.x) * along, y: a.y + (b.y - a.y) * along, z: 0 }
+}
+
+const wave = (t: number, period: number, offset = 0) => Math.sin((t / period) * Math.PI * 2 + offset)
+
+function outline(angle: number, t: number) {
+  return 1
+    + 0.04 * Math.sin(4 * angle + 0.8 + 0.7 * wave(t, 13))
+    + 0.025 * Math.sin(7 * angle + 2.4 + 0.9 * wave(t, 10, 1.5))
+}
+
+const frame = computed(() => {
+  const t = time.value
+
+  const positions = mesh.vertices.map((vertex) => {
+    const r = vertex.frac * outline(vertex.angle, t)
+    const z = Math.sqrt(Math.max(0, 1 - Math.min(r, 1) ** 2)) * 280 * (1 + 0.12 * wave(t, 6, vertex.phase)) + 15
+    return { x: CORNER.x + RADIUS * r * Math.cos(vertex.angle), y: CORNER.y + RADIUS * r * Math.sin(vertex.angle), z }
+  })
+
+  const outer = mesh.vertices.flatMap((vertex, index) => vertex.ring === 3 ? [positions[index]!] : [])
+  const scale = 1 + 0.025 * (1 + wave(t, 17))
+  const rotate = 1.5 * wave(t, 17, 0.8)
+
+  // Open at both ends: the outer ring runs from the left edge (x = 0) to the bottom edge (y = 400)
+  const offset = offsetOutline(outer, (OUTLINE_GAP_PX * unitsPerPx.value) / scale, false)
+  if (offset.length > 1) {
+    offset[0] = extendTo(offset[1]!, offset[0]!, { x: CORNER.x })
+    offset[offset.length - 1] = extendTo(offset[offset.length - 2]!, offset[offset.length - 1]!, { y: CORNER.y })
+  }
+
+  return {
+    facets: shadeFacets(mesh, positions, LIGHT, STOPS, { opacity: intensity => 0.45 + 0.5 * intensity }),
+    rim: toPoints(outer),
+    transform: `rotate(${rotate.toFixed(2)} ${CORNER.x} ${CORNER.y}) translate(${CORNER.x} ${CORNER.y}) scale(${scale.toFixed(4)}) translate(${-CORNER.x} ${-CORNER.y})`,
+    rimOpacity: (0.85 + 0.15 * wave(t, 13, 2)).toFixed(2),
+    offsetOutline: toPoints(offset),
+    offsetOpacity: (0.85 + 0.15 * wave(t, 23, 2.5)).toFixed(2)
+  }
+})
 </script>
 
 <template>
+  <!-- Own compositing layer: repainting the blob each frame then leaves the photo,
+       its glow and blend overlay cached instead of repainting them too -->
   <div
-    class="corner-blob"
     aria-hidden="true"
+    class="will-change-transform"
   >
     <svg
+      ref="svg"
       viewBox="0 0 600 400"
       fill="none"
       class="size-full overflow-visible"
     >
       <defs>
-        <radialGradient
-          :id="`${id}-fill`"
-          cx="10%"
-          cy="15%"
-          r="95%"
-        >
-          <stop
-            offset="0"
-            stop-color="#C22C1A"
-            stop-opacity="0.85"
-          />
-          <stop
-            offset="0.5"
-            stop-color="#86291D"
-            stop-opacity="0.6"
-          />
-          <stop
-            offset="1"
-            stop-color="#49110A"
-            stop-opacity="0"
-          />
-        </radialGradient>
         <linearGradient
           :id="`${id}-rim`"
           x1="0"
@@ -59,105 +114,57 @@ const id = useId()
             stop-opacity="0"
           />
         </linearGradient>
-        <filter
-          :id="`${id}-soft`"
-          x="-20%"
-          y="-20%"
-          width="140%"
-          height="140%"
+        <linearGradient
+          :id="`${id}-line`"
+          x1="0"
+          y1="0"
+          x2="1"
+          y2="1"
         >
-          <feGaussianBlur stdDeviation="6" />
-        </filter>
-        <filter
-          :id="`${id}-haze`"
-          x="-50%"
-          y="-50%"
-          width="200%"
-          height="200%"
-        >
-          <feGaussianBlur stdDeviation="28" />
-        </filter>
-        <filter
-          :id="`${id}-glow`"
-          x="-50%"
-          y="-50%"
-          width="200%"
-          height="200%"
-        >
-          <feGaussianBlur
-            stdDeviation="8"
-            result="b"
+          <stop
+            offset="0"
+            stop-color="#F6512F"
+            stop-opacity="0.9"
           />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
+          <stop
+            offset="1"
+            stop-color="#F6512F"
+            stop-opacity="0.2"
+          />
+        </linearGradient>
       </defs>
-      <!-- outer haze -->
-      <path
-        class="corner-blob__morph"
-        :filter="`url(#${id}-haze)`"
-        fill="#F6512F"
-        fill-opacity="0.35"
-        d="M0 30C120 10 230 70 290 190C320 250 330 320 340 400H0V30Z"
-      />
-      <!-- body -->
-      <path
-        class="corner-blob__morph"
-        :filter="`url(#${id}-soft)`"
-        :fill="`url(#${id}-fill)`"
-        d="M0 30C120 10 230 70 290 190C320 250 330 320 340 400H0V30Z"
-      />
-      <!-- glowing rim -->
-      <path
-        class="corner-blob__rim"
-        :filter="`url(#${id}-glow)`"
-        :stroke="`url(#${id}-rim)`"
-        stroke-width="3"
-        stroke-linecap="round"
-        d="M0 30C120 10 230 70 290 190C320 250 330 320 340 400"
-      />
+      <g :transform="frame.transform">
+        <!-- facets -->
+        <polygon
+          v-for="(facet, index) in frame.facets"
+          :key="index"
+          :points="facet.points"
+          :fill="facet.fill"
+          :fill-opacity="facet.opacity"
+          stroke="#FA8468"
+          stroke-opacity="0.1"
+          stroke-width="1"
+          stroke-linejoin="round"
+        />
+        <!-- rim along the curved edge -->
+        <polyline
+          :points="frame.rim"
+          :stroke="`url(#${id}-rim)`"
+          :opacity="frame.rimOpacity"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <!-- open outline that follows the curved edge at a fixed gap -->
+        <polyline
+          :points="frame.offsetOutline"
+          :opacity="frame.offsetOpacity"
+          :stroke="`url(#${id}-line)`"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+          vector-effect="non-scaling-stroke"
+        />
+      </g>
     </svg>
   </div>
 </template>
-
-<style scoped>
-.corner-blob {
-  transform-origin: 0% 100%;
-  animation: corner-blob-breathe 17s ease-in-out infinite;
-}
-
-.corner-blob__morph {
-  animation: corner-blob-morph 13s ease-in-out infinite;
-}
-
-.corner-blob__rim {
-  animation: corner-blob-rim 13s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .corner-blob,
-  .corner-blob * {
-    animation: none !important;
-  }
-}
-
-@keyframes corner-blob-breathe {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.05) rotate(1.5deg); }
-}
-
-@keyframes corner-blob-morph {
-  0%, 100% { d: path("M0 30C120 10 230 70 290 190C320 250 330 320 340 400H0V30Z"); }
-  33% { d: path("M0 22C128 4 246 74 302 196C330 258 336 326 344 400H0V22Z"); }
-  66% { d: path("M0 36C112 18 222 76 280 192C312 252 326 318 336 400H0V36Z"); }
-}
-
-@keyframes corner-blob-rim {
-  0%, 100% { d: path("M0 30C120 10 230 70 290 190C320 250 330 320 340 400"); opacity: 0.8; }
-  33% { d: path("M0 22C128 4 246 74 302 196C330 258 336 326 344 400"); opacity: 1; }
-  66% { d: path("M0 36C112 18 222 76 280 192C312 252 326 318 336 400"); opacity: 0.9; }
-}
-</style>

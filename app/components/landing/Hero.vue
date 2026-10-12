@@ -20,6 +20,9 @@ const avatars = computed(() => props.page.teachers?.items?.slice(0, 3).map(item 
 
 const [primaryLink, secondaryLink] = props.page.hero.links
 
+// Blobs speed up while the pointer is over the hero
+const blobsFast = ref(false)
+
 const motionInitial = {
   y: 24,
   opacity: 0,
@@ -33,10 +36,17 @@ const motionAnimate = {
 </script>
 
 <template>
-  <section class="relative isolate overflow-x-clip">
+  <section
+    class="relative isolate overflow-x-clip"
+    @mouseenter="blobsFast = true"
+    @mouseleave="blobsFast = false"
+  >
     <!-- Corner blob: top-right (rotated) up to tablet, bottom-left spilling out of the hero on desktop -->
     <div class="pointer-events-none absolute top-0 right-0 -z-10 aspect-[3/2] w-[60vw] max-w-[520px] rotate-180 opacity-80 lg:top-auto lg:right-auto lg:bottom-0 lg:left-0 lg:translate-y-1/2 lg:rotate-0 lg:[mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
-      <LandingHeroCornerBlob class="size-full" />
+      <LandingHeroCornerBlob
+        :fast="blobsFast"
+        class="size-full"
+      />
     </div>
 
     <UContainer class="max-w-7xl grid items-center gap-16 pt-24 pb-16 sm:py-24 lg:grid-cols-[1fr_1.05fr] lg:gap-10 lg:py-28">
@@ -109,7 +119,7 @@ const motionAnimate = {
               :icon="primaryLink.icon"
               trailing-icon="i-lucide-arrow-right"
               size="xl"
-              class="bg-gradient-brand btn-glow rounded-full px-8 py-4 text-base font-semibold text-white hover:opacity-90"
+              class="bg-gradient-brand btn-glow transition rounded-full px-8 py-4 text-base font-semibold text-white hover:opacity-90"
             >
               {{ primaryLink.label }}
             </UButton>
@@ -119,7 +129,7 @@ const motionAnimate = {
               color="neutral"
               variant="outline"
               size="xl"
-              class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 hover:bg-white/5"
+              class="transition rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 hover:bg-white/5"
             >
               {{ secondaryLink.label }}
             </UButton>
@@ -134,8 +144,11 @@ const motionAnimate = {
         :transition="{ duration: 0.8, delay: 0.3 }"
         class="relative mx-auto w-full max-w-xl lg:max-w-none"
       >
-        <LandingHeroBlob class="pointer-events-none absolute -inset-x-[12%] -top-[18%] -bottom-[8%] -z-10 h-[126%] w-[124%] max-w-none" />
-        <div class="photo-glow aspect-[9/8]">
+        <LandingHeroBlob
+          :fast="blobsFast"
+          class="pointer-events-none absolute -inset-x-[12%] -top-[18%] -bottom-[8%] -z-10 h-[126%] w-[124%] max-w-none"
+        />
+        <LandingHeroVideo>
           <NuxtImg
             src="/hero/hero-student@2x.jpg"
             alt="A student smiling while taking notes during an online class"
@@ -147,7 +160,7 @@ const motionAnimate = {
             fetchpriority="high"
             class="size-full object-cover"
           />
-        </div>
+        </LandingHeroVideo>
       </Motion>
     </UContainer>
   </section>
