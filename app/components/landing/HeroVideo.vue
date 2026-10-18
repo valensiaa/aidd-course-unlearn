@@ -111,7 +111,8 @@ function trapFocus(event: KeyboardEvent) {
             :fast="stageHovered"
             class="pointer-events-none absolute top-[60.2%] left-0 h-[31.5%] w-[26.6%] opacity-80 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
           />
-          <LandingHeroBlob
+          <BlobBackdrop
+            variant="hero"
             :fast="stageHovered"
             class="pointer-events-none absolute top-[7.3%] left-[47.3%] h-[62.6%] w-[37.1%]"
           />

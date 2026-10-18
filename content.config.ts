@@ -46,6 +46,8 @@ export default defineContentConfig({
           images: z.array(createImageSchema())
         }),
         howItWorks: createBaseSchema().extend({
+          // Cut-out photo of a person (transparent background), shown in front of a blob
+          image: createImageSchema().optional(),
           steps: z.array(z.object({
             icon: z.string().editor({ input: 'icon' }),
             title: z.string(),
@@ -60,7 +62,9 @@ export default defineContentConfig({
             rating: z.number(),
             reviews: z.number(),
             price: z.string(),
-            avatar: createImageSchema()
+            avatar: createImageSchema(),
+            // Cut-out photo (transparent background) shown on a blob in the teacher's card
+            photo: createImageSchema().optional()
           }))
         }),
         testimonials: createBaseSchema().extend({

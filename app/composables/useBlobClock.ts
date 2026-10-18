@@ -1,12 +1,18 @@
 /**
- * Animation time (seconds) for the hero blobs. Runs faster while `fast` is true,
- * easing between speeds so the motion never jumps. Stays at 0 for reduced motion.
+ * Animation time (seconds) for the blobs. Runs faster while `fast` is true and comes to a
+ * stop while `paused` is true, easing between speeds so the motion never jumps.
+ * Stays at 0 for reduced motion.
  */
-export function useBlobClock(fast: MaybeRefOrGetter<boolean | undefined>, fastSpeed = 3) {
+export function useBlobClock(
+  fast: MaybeRefOrGetter<boolean | undefined>,
+  paused?: MaybeRefOrGetter<boolean | undefined>,
+  fastSpeed = 3
+) {
   const time = ref(0)
   let frame = 0
   let last = 0
-  let speed = 1
+  // Start still if paused, so a paused blob doesn't drift to a stop on page load
+  let speed = toValue(paused) ? 0 : 1
 
   const tick = (now: number) => {
     const dt = last ? Math.min((now - last) / 1000, 0.1) : 0
@@ -15,8 +21,10 @@ export function useBlobClock(fast: MaybeRefOrGetter<boolean | undefined>, fastSp
     // Hold still during the theme reveal: a changing page forces the browser to
     // repaint the whole revealed snapshot every frame, which makes the reveal stutter
     if (document.documentElement.classList.contains('theme-switching')) return
-    const target = toValue(fast) ? fastSpeed : 1
+    const target = toValue(paused) ? 0 : toValue(fast) ? fastSpeed : 1
     speed += (target - speed) * (1 - Math.exp(-dt * 3))
+    // Skip the update once stopped, so a paused blob costs nothing per frame
+    if (speed < 0.001) return
     time.value += dt * speed
   }
 

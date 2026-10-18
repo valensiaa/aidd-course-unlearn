@@ -40,6 +40,9 @@ hero:
 howItWorks:
   title: How Mentora works
   description: "From first search to your first lesson in minutes. No subscriptions, no commitments — just learning that fits your life."
+  image:
+    src: /persons/cutouts/young-woman.webp
+    alt: A smiling young woman with shoulder-length brown hair
   steps:
     - icon: i-lucide-search
       title: Find your teacher
@@ -66,6 +69,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Sofía Herrera
+      photo:
+        src: /persons/cutouts/young-woman.webp
+        alt: Sofía Herrera
     - name: David Okafor
       subject: Mathematics & Physics
       bio: "PhD candidate who makes hard ideas click. Specializes in exam prep, calculus, and building real intuition."
@@ -74,6 +80,9 @@ teachers:
       price: "$32 / hr"
       avatar:
         src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: David Okafor
+      photo:
+        src: /persons/cutouts/young-man.webp
         alt: David Okafor
     - name: Mei Tanaka
       subject: Japanese for Beginners
@@ -84,6 +93,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Mei Tanaka
+      photo:
+        src: /persons/cutouts/woman-glasses.webp
+        alt: Mei Tanaka
     - name: Liam O'Connor
       subject: Guitar & Music Theory
       bio: "Touring musician turned teacher. From your first chords to writing your own songs, at any age."
@@ -92,6 +104,9 @@ teachers:
       price: "$26 / hr"
       avatar:
         src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Liam O'Connor
+      photo:
+        src: /persons/cutouts/man-glasses.webp
         alt: Liam O'Connor
     - name: Priya Nair
       subject: Python & Data Science
@@ -133,6 +148,22 @@ testimonials:
         description: 'Switching careers into tech'
         avatar:
           src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=facearea&facepad=2&w=80&h=80&q=80'
+    - quote: "I always wanted to play guitar but never stuck with videos. A real teacher who hears my mistakes and keeps me accountable made the difference. I played my first full song at my sister's wedding."
+      author:
+        name: 'Tom Reyes'
+        description: 'Learning guitar at 42'
+    - quote: "My IELTS writing score jumped from 6.0 to 7.5 in eight weeks. Every essay came back with clear, honest feedback — it felt like having a coach in my corner."
+      author:
+        name: 'Lena Kovač'
+        description: 'Preparing to study abroad'
+    - quote: "Japanese felt impossible until my teacher broke it into small wins. Lessons fit around my night shifts, and now I can read menus and chat with my in-laws."
+      author:
+        name: 'Marco Bellini'
+        description: 'Learning Japanese for family'
+    - quote: "I went from copying Python snippets to building my own data dashboards. Working on real projects with my teacher taught me more than a year of tutorials."
+      author:
+        name: 'Grace Okoye'
+        description: 'Analyst learning data science'
 faq:
   title: Frequently asked questions
   description: "Everything you need to know before your first lesson on Mentora."

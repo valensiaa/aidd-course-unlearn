@@ -144,7 +144,8 @@ const motionAnimate = {
         :transition="{ duration: 0.8, delay: 0.3 }"
         class="relative mx-auto w-full max-w-xl lg:max-w-none"
       >
-        <LandingHeroBlob
+        <BlobBackdrop
+          variant="hero"
           :fast="blobsFast"
           class="pointer-events-none absolute -inset-x-[12%] -top-[18%] -bottom-[8%] -z-10 h-[126%] w-[124%] max-w-none"
         />
