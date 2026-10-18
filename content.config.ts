@@ -87,16 +87,16 @@ export default defineContentConfig({
         })
       })
     }),
-    projects: defineCollection({
+    subjects: defineCollection({
       type: 'data',
-      source: 'projects/*.yml',
+      source: 'subjects/*.yml',
       schema: z.object({
         title: z.string().nonempty(),
         description: z.string().nonempty(),
-        image: z.string().nonempty().editor({ input: 'media' }),
-        url: z.string().nonempty(),
-        tags: z.array(z.string()),
-        date: z.date()
+        icon: z.string().editor({ input: 'icon' }),
+        image: createImageSchema(),
+        topics: z.array(z.string()),
+        order: z.number()
       })
     }),
     blog: defineCollection({
@@ -112,21 +112,22 @@ export default defineContentConfig({
     pages: defineCollection({
       type: 'page',
       source: [
-        { include: 'projects.yml' },
+        { include: 'subjects.yml' },
         { include: 'blog.yml' }
       ],
       schema: z.object({
         links: z.array(createButtonSchema())
       })
     }),
-    speaking: defineCollection({
+    events: defineCollection({
       type: 'page',
-      source: 'speaking.yml',
+      source: 'events.yml',
       schema: z.object({
         links: z.array(createButtonSchema()),
         events: z.array(z.object({
-          category: z.enum(['Live talk', 'Podcast', 'Conference']),
+          category: z.enum(['Webinar', 'Workshop', 'Podcast']),
           title: z.string(),
+          description: z.string().optional(),
           date: z.date(),
           location: z.string(),
           url: z.string().optional()
@@ -138,6 +139,15 @@ export default defineContentConfig({
       source: 'about.yml',
       schema: z.object({
         content: z.object({}),
+        stats: z.array(z.object({
+          value: z.string(),
+          label: z.string()
+        })),
+        values: z.array(z.object({
+          icon: z.string().editor({ input: 'icon' }),
+          title: z.string(),
+          description: z.string()
+        })),
         images: z.array(createImageSchema())
       })
     })

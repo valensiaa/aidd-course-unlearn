@@ -1,0 +1,8 @@
+title: Mathematics
+description: From school algebra to university calculus, with teachers who build real intuition instead of rote steps — and help you catch up when you fall behind.
+icon: i-lucide-sigma
+image:
+  src: /hero/random-5.avif
+  alt: A spiral staircase seen from above
+topics: [Algebra, Calculus, Statistics, School support]
+order: 2

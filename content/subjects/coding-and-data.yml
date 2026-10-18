@@ -1,0 +1,8 @@
+title: Coding & Data
+description: Hands-on lessons built around real projects — from your first lines of Python to dashboards and interview prep.
+icon: i-lucide-code
+image:
+  src: /hero/random-2.avif
+  alt: Glossy green leaves of a rubber plant against a white wall
+topics: [Python, Data science, Web development, Interview prep]
+order: 5

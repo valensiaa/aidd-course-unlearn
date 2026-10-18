@@ -12,10 +12,7 @@ const blobVariant = useState<BlobVariantName>(
 )
 
 // Last word of the title gets the brand gradient, like the hero ("How Mentora works")
-const titleParts = computed(() => {
-  const words = props.page.howItWorks.title.split(' ')
-  return { lead: words.slice(0, -1).join(' '), highlight: words.at(-1) }
-})
+const titleParts = computed(() => highlightTitle(props.page.howItWorks.title))
 </script>
 
 <template>
@@ -32,7 +29,10 @@ const titleParts = computed(() => {
         :in-view-options="{ once: true }"
         class="mx-auto w-full max-w-md"
       >
-        <BlobPortrait :variant="blobVariant">
+        <BlobPortrait
+          v-parallax="0.05"
+          :variant="blobVariant"
+        >
           <NuxtImg
             v-if="page.howItWorks.image"
             :src="page.howItWorks.image.src"

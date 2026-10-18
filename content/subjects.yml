@@ -1,0 +1,9 @@
+title: Find your subject, then find your teacher
+description: From conversational Spanish to calculus to guitar — browse what you can learn on Mentora, then meet a teacher who builds every lesson around you.
+links:
+  - label: Find a teacher
+    to: /#teachers
+    icon: i-lucide-search
+  - label: Become a teacher
+    to: "mailto:hello@mentora.com?subject=I want to teach on Mentora"
+    icon: i-lucide-graduation-cap

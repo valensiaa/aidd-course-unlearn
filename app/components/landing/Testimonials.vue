@@ -6,10 +6,7 @@ const props = defineProps<{
 }>()
 
 // Last word of the title gets the brand gradient, like the other sections
-const titleParts = computed(() => {
-  const words = props.page.testimonials.title.split(' ')
-  return { lead: words.slice(0, -1).join(' '), highlight: words.at(-1) }
-})
+const titleParts = computed(() => highlightTitle(props.page.testimonials.title))
 
 const items = computed(() => props.page.testimonials.items)
 const active = ref(0)
@@ -60,6 +57,7 @@ useSwipe(stage, {
     <!-- Blobs behind the cards (they show through the glass): a smaller one at the bottom
          left here, and one on the right inside the card area below -->
     <BlobBackdrop
+      v-parallax="0.12"
       variant="dusk"
       class="pointer-events-none absolute bottom-6 -left-32 -z-10 size-[22rem] opacity-90 max-lg:hidden"
     />
@@ -90,6 +88,7 @@ useSwipe(stage, {
     >
       <!-- Right blob, placed against the cards so its top third shows above the right-hand ones -->
       <BlobBackdrop
+        v-parallax="0.08"
         variant="bloom"
         class="pointer-events-none absolute -top-24 -right-40 -z-10 size-[30rem] opacity-90 max-lg:hidden"
       />

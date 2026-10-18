@@ -1,0 +1,8 @@
+title: Sciences
+description: Physics, chemistry and biology explained one-on-one, with exam prep and lab-report help when you need it.
+icon: i-lucide-atom
+image:
+  src: /hero/random-8.avif
+  alt: A golden chandelier hanging in a white domed ceiling
+topics: [Physics, Chemistry, Biology, Exam prep]
+order: 3

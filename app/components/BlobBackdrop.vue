@@ -75,12 +75,13 @@ const frame = computed(() => {
 </script>
 
 <template>
-  <!-- Own compositing layer: repainting the blob each frame then leaves whatever is
-       in front of it cached instead of repainting it too -->
   <div
     aria-hidden="true"
     class="will-change-transform"
   >
+    <!-- will-change gives the blob its own compositing layer: repainting it each frame then
+         leaves whatever is in front of it cached instead of repainting it too. Keep this a
+         single root element (no comment above it), so directives like v-parallax apply. -->
     <svg
       ref="svg"
       :viewBox="`0 0 ${config.viewBox.width} ${config.viewBox.height}`"

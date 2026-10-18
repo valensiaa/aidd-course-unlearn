@@ -133,6 +133,37 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Long-form text from content files (MDC): paragraph rhythm and white subheadings */
+@layer components {
+  .prose-mentora :where(p, ul, ol, h3) {
+    margin-top: 1.25rem;
+  }
+
+  .prose-mentora :where(p, ul, ol, h3):first-child {
+    margin-top: 0;
+  }
+
+  .prose-mentora h3 {
+    margin-top: 2.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ui-text-highlighted);
+  }
+
+  .prose-mentora strong {
+    color: var(--ui-text-highlighted);
+  }
+
+  /* Only links in running text; heading anchor links keep the heading style */
+  .prose-mentora :where(p, li) a {
+    color: var(--color-mentora-400);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
 /* Inner glow for buttons */
 .btn-glow {
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);

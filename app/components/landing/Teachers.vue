@@ -6,10 +6,7 @@ const props = defineProps<{
 }>()
 
 // Last word of the title gets the brand gradient, like the hero ("Meet a few of our teachers")
-const titleParts = computed(() => {
-  const words = props.page.teachers.title.split(' ')
-  return { lead: words.slice(0, -1).join(' '), highlight: words.at(-1) }
-})
+const titleParts = computed(() => highlightTitle(props.page.teachers.title))
 
 // Cycle the solid blob variants across the cards (the open `halo` doesn't suit a photo)
 const CARD_BLOBS: BlobVariantName[] = ['ember', 'shard', 'bloom', 'dusk']

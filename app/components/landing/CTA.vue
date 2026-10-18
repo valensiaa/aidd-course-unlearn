@@ -6,10 +6,7 @@ const props = defineProps<{
 }>()
 
 // Last three words of the title get the brand gradient ("one lesson away")
-const titleParts = computed(() => {
-  const words = props.page.cta.title.split(' ')
-  return { lead: words.slice(0, -3).join(' '), highlight: words.slice(-3).join(' ') }
-})
+const titleParts = computed(() => highlightTitle(props.page.cta.title, 3))
 
 const [primaryLink, ...otherLinks] = props.page.cta.links
 </script>
@@ -30,6 +27,7 @@ const [primaryLink, ...otherLinks] = props.page.cta.links
         <!-- Blob behind the card and its photo, larger than the card so it overlaps the card's
              top, bottom and left borders; inside the card it shows through the glass -->
         <BlobBackdrop
+          v-parallax="0.1"
           variant="ember"
           class="pointer-events-none absolute top-1/2 -left-24 -z-10 size-[40rem] -translate-y-1/2 max-lg:hidden"
         />

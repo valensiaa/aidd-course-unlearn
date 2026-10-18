@@ -42,7 +42,10 @@ const motionAnimate = {
     @mouseleave="blobsFast = false"
   >
     <!-- Corner blob: top-right (rotated) up to tablet, bottom-left spilling out of the hero on desktop -->
-    <div class="pointer-events-none absolute top-0 right-0 -z-10 aspect-[3/2] w-[60vw] max-w-[520px] rotate-180 opacity-80 lg:top-auto lg:right-auto lg:bottom-0 lg:left-0 lg:translate-y-1/2 lg:rotate-0 lg:[mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
+    <div
+      v-parallax="0.15"
+      class="pointer-events-none absolute top-0 right-0 -z-10 aspect-[3/2] w-[60vw] max-w-[520px] rotate-180 opacity-80 lg:top-auto lg:right-auto lg:bottom-0 lg:left-0 lg:translate-y-1/2 lg:rotate-0 lg:[mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+    >
       <LandingHeroCornerBlob
         :fast="blobsFast"
         class="size-full"
@@ -145,11 +148,12 @@ const motionAnimate = {
         class="relative mx-auto w-full max-w-xl lg:max-w-none"
       >
         <BlobBackdrop
+          v-parallax="0.06"
           variant="hero"
           :fast="blobsFast"
           class="pointer-events-none absolute -inset-x-[12%] -top-[18%] -bottom-[8%] -z-10 h-[126%] w-[124%] max-w-none"
         />
-        <LandingHeroVideo>
+        <LandingHeroVideo v-parallax="-0.04">
           <NuxtImg
             src="/hero/hero-student@2x.jpg"
             alt="A student smiling while taking notes during an online class"

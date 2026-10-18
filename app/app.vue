@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
 
-const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
+const color = computed(() => colorMode.value === 'dark' ? '#121619' : 'white')
 
 useHead({
   meta: [
@@ -18,7 +18,8 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt Portfolio Template',
+  // Brand suffix, unless the page title already names Mentora (like the home page's)
+  titleTemplate: title => !title || title.includes('Mentora') ? (title || 'Mentora') : `${title} · Mentora`,
   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
   twitterCard: 'summary_large_image'
 })

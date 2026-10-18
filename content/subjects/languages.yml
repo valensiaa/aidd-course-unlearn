@@ -1,0 +1,8 @@
+title: Languages
+description: Conversation-first lessons with native and fluent speakers. Build confidence speaking from your very first class, at your own pace.
+icon: i-lucide-languages
+image:
+  src: /hero/random-1.avif
+  alt: An open book on a café table beside a vase of yellow flowers
+topics: [Spanish, Japanese, English, French]
+order: 1

@@ -1,0 +1,51 @@
+title: Free events for curious learners
+description: Live webinars, hands-on workshops and podcast conversations with Mentora teachers and students. Free to join, wherever you are.
+links:
+  - label: Suggest a topic
+    icon: i-lucide-lightbulb
+events:
+  - category: Webinar
+    title: "How to choose the right teacher for you"
+    description: "What to look for in a profile, how to use a first lesson well, and when to switch."
+    date: "2026-11-12"
+    location: "Online · Mentora Live"
+  - category: Webinar
+    title: "Learning a language as a busy adult"
+    description: "Small daily habits, realistic goals and how to keep going after the first month."
+    date: "2026-12-03"
+    location: "Online · Mentora Live"
+  - category: Webinar
+    title: "Helping your child catch up in math"
+    description: "A session for parents on spotting gaps early and building confidence at home."
+    date: "2026-09-24"
+    location: "Online · Mentora Live"
+  - category: Workshop
+    title: "Your first 30 days teaching on Mentora"
+    description: "Set up a profile that stands out, plan your first lessons and price with confidence."
+    date: "2026-11-26"
+    location: "Online · Teacher workshop"
+  - category: Workshop
+    title: "Exam season: a study plan that works"
+    description: "Build a week-by-week plan with a teacher, then leave with a template you can reuse."
+    date: "2027-01-21"
+    location: "Online · Student workshop"
+  - category: Workshop
+    title: "Giving feedback that students act on"
+    description: "Practical techniques for clear, kind and specific feedback in one-on-one lessons."
+    date: "2026-10-08"
+    location: "Online · Teacher workshop"
+  - category: Podcast
+    title: "The one-on-one advantage"
+    description: "Why a teacher who knows your name changes how fast you learn."
+    date: "2026-10-01"
+    location: "The Mentora Podcast · Episode 12"
+  - category: Podcast
+    title: "From night shifts to Japanese menus"
+    description: "A student story about fitting language lessons around a demanding schedule."
+    date: "2026-09-10"
+    location: "The Mentora Podcast · Episode 11"
+  - category: Podcast
+    title: "Teaching guitar to grown-ups"
+    description: "A Mentora teacher on patience, small wins and the first song you can play."
+    date: "2026-08-20"
+    location: "The Mentora Podcast · Episode 10"

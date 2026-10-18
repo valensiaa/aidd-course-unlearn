@@ -1,27 +1,41 @@
-title: About Me
-description: Learn more about my journey as a Boston-based UX/UI Designer & Front-End Developer, my design philosophy, and my passion for crafting intuitive digital experiences.
+title: Learning works best one-on-one
+description: Mentora connects curious people with passionate teachers for live, personal lessons over video — built around your goals, your schedule and your pace.
 content: |
-  Hi, I'm **Emma Thompson**, a UX/UI Designer and Front-End Developer based right here in Boston. For the past six years, I've been immersed in the world of digital product creation, focusing on building experiences that are not just functional, but genuinely intuitive and engaging for users.
+  We started Mentora with a simple belief: the fastest way to learn almost anything is still a great teacher who knows your name. Apps and group classes have their place, but nothing beats someone who hears your mistakes, notices what clicks, and adjusts the next lesson just for you.
 
-  My path started at **Boston University**, where I earned a degree in Interactive Design. It was there I discovered my dual passion for the visual language of design and the logical puzzle of code. Since then, I've honed my skills in both areas, believing that the best digital products are born from a deep understanding of both aesthetics and implementation.
+  So we built a place where finding that teacher takes minutes, not months. Every teacher sets their own subjects, schedule and rates, and every lesson happens live in a video classroom that runs right in your browser — with a whiteboard, screen sharing and notes in one place.
 
-  ### My Design Philosophy
+  ### Who learns on Mentora
 
-  My design philosophy is rooted in **empathy** and **problem-solving**. I believe great design starts with understanding the 'why' – the user's needs, motivations, and pain points. I use research, iterative prototyping (often with tools like Figma), and user testing to ensure the solutions I build are truly effective.
+  Adults finally picking up the language they always meant to learn. Parents looking for patient help when a child falls behind. Career changers preparing for an interview, and students racing an exam deadline. Different goals, same idea: one teacher, fully focused on one learner.
 
-  I strive to create interfaces that feel effortless, where functionality and beauty work hand-in-hand. Whether I'm crafting pixel-perfect UIs or writing clean Vue.js/Nuxt.js code, my focus is always on creating value for the end-user.
+  ### Who teaches on Mentora
 
-  ### What Drives Me
-
-  What keeps me excited about this work is the constant learning and the challenge of translating complex ideas into simple, elegant solutions. There's nothing more rewarding than seeing a design come to life and knowing it's making someone's digital interaction easier or more enjoyable.
-
-  ### Beyond the Screen
-
-  When I'm not designing or coding, you might find me exploring Boston's latest coffee shops, hiking nearby trails, or occasionally contributing to open-source projects.
-
-  Thanks for stopping by. Feel free to browse my [projects](/projects) or [get in touch](/#contact) if you'd like to collaborate!
+  Native speakers, musicians, engineers, lecturers and lifelong tutors — people who love their subject and love sharing it. They set their own hours and keep full control of their calendar, while Mentora takes care of bookings and payments.
+stats:
+  - value: "12,000+"
+    label: vetted teachers
+  - value: "4.9"
+    label: typical teacher rating
+  - value: "$15–45"
+    label: typical price per hour
+  - value: "12 h"
+    label: free rescheduling before a lesson
+values:
+  - icon: i-lucide-badge-check
+    title: Every teacher is vetted
+    description: Teachers are identity-verified and reviewed by our team before they can teach, and student reviews keep the community honest.
+  - icon: i-lucide-calendar-heart
+    title: Built around your life
+    description: Book a time that works, reschedule for free up to 12 hours before, and learn from anywhere with a laptop or phone.
+  - icon: i-lucide-wallet
+    title: No subscriptions
+    description: Teachers set clear prices on their profiles. You only pay for the lessons you book — no hidden fees.
+  - icon: i-lucide-shield-check
+    title: Safe and secure
+    description: Lessons happen in our monitored video classroom, and payments are processed securely through Stripe.
 images:
-  - src: https://images.unsplash.com/photo-1744877478622-a78c7a3336f6?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My coffee workspace
-  - src: https://images.unsplash.com/photo-1744429523595-2c06b8611242?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-    alt: My trip to Tokyo
+  - src: /hero/random-4.avif
+    alt: A white front door framed by climbing plants
+  - src: /hero/random-9.avif
+    alt: An artist's studio with plaster busts on wooden shelves

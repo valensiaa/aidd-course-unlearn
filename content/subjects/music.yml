@@ -1,0 +1,8 @@
+title: Music
+description: Learn an instrument or the theory behind it — from your first chords to writing your own songs, at any age.
+icon: i-lucide-music
+image:
+  src: /hero/random-3.avif
+  alt: A sunlit arcade of stone arches with hanging lanterns
+topics: [Guitar, Piano, Music theory, Songwriting]
+order: 4

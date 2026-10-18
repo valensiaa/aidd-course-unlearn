@@ -6,10 +6,7 @@ const props = defineProps<{
 }>()
 
 // Last word of the title gets the brand gradient, like the other sections
-const titleParts = computed(() => {
-  const words = props.page.faq.title.split(' ')
-  return { lead: words.slice(0, -1).join(' '), highlight: words.at(-1) }
-})
+const titleParts = computed(() => highlightTitle(props.page.faq.title))
 
 const categories = computed(() => props.page.faq.categories)
 const active = ref(0)
@@ -53,6 +50,7 @@ function onTabKeydown(event: KeyboardEvent) {
         <!-- Blob from the middle of the list outwards, covering its right half; it shows
              through the glass -->
         <BlobBackdrop
+          v-parallax="0.1"
           variant="ember"
           class="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-[42rem] -translate-y-1/2 opacity-90 max-lg:hidden"
         />
