@@ -54,13 +54,7 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
           :while-in-view="{ y: 0, opacity: 1 }"
           :transition="{ duration: 0.6 }"
           :in-view-options="{ once: true }"
-          class="relative isolate"
         >
-          <BlobBackdrop
-            v-parallax="0.1"
-            variant="ember"
-            class="pointer-events-none absolute top-1/2 -left-28 -z-10 size-[34rem] -translate-y-1/2 max-lg:hidden"
-          />
           <NuxtLink
             :to="featured.path"
             class="group glass-warm grid overflow-hidden rounded-3xl transition hover:-translate-y-1 md:grid-cols-2"

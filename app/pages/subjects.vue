@@ -57,7 +57,7 @@ const hoveredCard = ref<number>()
           color="neutral"
           variant="outline"
           size="xl"
-          class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 transition hover:bg-white/5"
+          class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-highlighted ring-default transition hover:bg-elevated/50 dark:ring-white/25 dark:hover:bg-white/5"
         >
           {{ secondaryLink.label }}
         </UButton>
@@ -130,7 +130,7 @@ const hoveredCard = ref<number>()
                   <li
                     v-for="topic in subject.topics"
                     :key="topic"
-                    class="rounded-full px-3 py-1 text-xs font-medium text-midnight-200 ring-1 ring-default"
+                    class="rounded-full px-3 py-1 text-xs font-medium text-muted ring-1 dark:text-midnight-200 ring-default"
                   >
                     {{ topic }}
                   </li>

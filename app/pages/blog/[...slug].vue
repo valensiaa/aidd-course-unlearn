@@ -11,7 +11,7 @@ const { data: page } = await useAsyncData(route.path, () =>
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryCollectionItemSurroundings('blog', route.path, {
-    fields: ['description']
+    fields: ['description', 'image', 'date', 'minRead']
   })
 )
 
@@ -41,6 +41,18 @@ useSeoMeta({
 })
 
 const articleLink = computed(() => `${window?.location}`)
+
+// Surround items carry the extra fields requested above, which their type doesn't declare
+type Neighbour = ContentNavigationItem & { description?: string, image?: string, date?: string, minRead?: number }
+
+// Previous article on the left, next on the right; either may be missing at the ends
+const neighbours = computed(() => {
+  const [previous, next] = (surround.value ?? []) as (Neighbour | null)[]
+  return [
+    previous && { ...previous, label: 'Previous article', icon: 'i-lucide-arrow-left', side: 'left' as const },
+    next && { ...next, label: 'Next article', icon: 'i-lucide-arrow-right', side: 'right' as const }
+  ].filter(item => !!item)
+})
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -89,20 +101,36 @@ const formatDate = (dateString: string) => {
           <p class="max-w-2xl text-lg leading-relaxed text-muted">
             {{ page.description }}
           </p>
-          <UUser
-            v-bind="page.author"
-            size="lg"
-            class="mt-1"
-          />
+          <!-- Author, with their avatar on a small blob that peeks out around it -->
+          <div class="mt-1 flex items-center gap-4">
+            <div class="relative isolate grid size-16 shrink-0 place-items-center">
+              <BlobBackdrop
+                variant="ember"
+                :outline="false"
+                class="pointer-events-none absolute inset-0 -z-10"
+              />
+              <UAvatar
+                :src="page.author.avatar?.src"
+                :alt="page.author.avatar?.alt || page.author.name"
+                size="xl"
+              />
+            </div>
+            <div class="text-left">
+              <p class="font-heading font-semibold text-highlighted">
+                {{ page.author.name }}
+              </p>
+              <p
+                v-if="page.author.description"
+                class="text-sm text-muted"
+              >
+                {{ page.author.description }}
+              </p>
+            </div>
+          </div>
         </header>
 
-        <!-- Cover image framed on a blob that overlaps its edges -->
-        <div class="relative isolate mt-12">
-          <BlobBackdrop
-            v-parallax="0.1"
-            variant="ember"
-            class="pointer-events-none absolute top-1/2 -left-24 -z-10 size-[30rem] -translate-y-1/2 max-lg:hidden"
-          />
+        <!-- Cover image -->
+        <div class="mt-12">
           <div class="photo-frame">
             <NuxtImg
               :src="page.image"
@@ -129,7 +157,66 @@ const formatDate = (dateString: string) => {
               @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
             />
           </div>
-          <UContentSurround :surround />
+          <!-- Previous / next articles as cards, like the journal's article cards -->
+          <nav
+            v-if="neighbours.length"
+            aria-label="More articles"
+            class="grid gap-6 sm:grid-cols-2"
+          >
+            <NuxtLink
+              v-for="item in neighbours"
+              :key="item.path"
+              :to="item.path"
+              class="group glass-warm flex flex-col overflow-hidden rounded-2xl transition hover:-translate-y-1"
+              :class="item.side === 'right' ? 'sm:col-start-2 sm:text-right' : ''"
+            >
+              <div class="overflow-hidden">
+                <NuxtImg
+                  v-if="item.image"
+                  :src="item.image"
+                  alt=""
+                  width="420"
+                  height="236"
+                  loading="lazy"
+                  class="aspect-video w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="flex flex-1 flex-col gap-2 p-6">
+                <p
+                  class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-mentora-400"
+                  :class="item.side === 'right' ? 'sm:justify-end' : ''"
+                >
+                  <UIcon
+                    v-if="item.side === 'left'"
+                    :name="item.icon"
+                    class="size-4 transition-transform group-hover:-translate-x-1"
+                    aria-hidden="true"
+                  />
+                  {{ item.label }}
+                  <UIcon
+                    v-if="item.side === 'right'"
+                    :name="item.icon"
+                    class="size-4 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </p>
+                <h2 class="font-heading text-xl font-semibold leading-snug text-highlighted">
+                  {{ item.title }}
+                </h2>
+                <p class="line-clamp-2 text-sm leading-relaxed text-muted">
+                  {{ item.description }}
+                </p>
+                <p
+                  v-if="item.date"
+                  class="mt-auto pt-2 text-xs text-muted dark:text-midnight-300"
+                >
+                  {{ formatDate(item.date) }}<template v-if="item.minRead">
+                    · {{ item.minRead }} min read
+                  </template>
+                </p>
+              </div>
+            </NuxtLink>
+          </nav>
         </UPageBody>
       </UPage>
     </UContainer>

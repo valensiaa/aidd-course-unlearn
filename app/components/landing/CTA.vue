@@ -75,7 +75,7 @@ const [primaryLink, ...otherLinks] = props.page.cta.links
                 color="neutral"
                 variant="outline"
                 size="xl"
-                class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 transition hover:bg-white/5"
+                class="rounded-full bg-transparent px-8 py-4 text-base font-semibold text-highlighted ring-default transition hover:bg-elevated/50 dark:ring-white/25 dark:hover:bg-white/5"
               >
                 {{ link.label }}
               </UButton>

@@ -62,7 +62,7 @@ const motionAnimate = {
         >
           <NuxtLink
             to="#teachers"
-            class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-midnight-900/60 py-1.5 pl-1.5 pr-4 text-xs text-white sm:text-sm backdrop-blur transition hover:border-mentora-500/70"
+            class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-elevated/40 py-1.5 pl-1.5 pr-4 text-xs text-highlighted dark:bg-midnight-900/60 sm:text-sm backdrop-blur transition hover:border-mentora-500/70"
           >
             <span class="flex -space-x-2.5">
               <NuxtImg
@@ -72,7 +72,7 @@ const motionAnimate = {
                 :alt="avatar.alt"
                 width="36"
                 height="36"
-                class="size-7 rounded-full sm:size-9 object-cover ring-2 ring-midnight-950"
+                class="size-7 rounded-full sm:size-9 object-cover ring-2 ring-white dark:ring-midnight-950"
               />
             </span>
             <span>
@@ -90,7 +90,7 @@ const motionAnimate = {
           :animate="motionAnimate"
           :transition="{ duration: 0.6, delay: 0.2 }"
         >
-          <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-highlighted sm:text-5xl lg:text-6xl">
             <span
               v-for="(line, index) in titleParts.lead"
               :key="index"
@@ -105,7 +105,7 @@ const motionAnimate = {
           :animate="motionAnimate"
           :transition="{ duration: 0.6, delay: 0.3 }"
         >
-          <p class="mt-6 max-w-lg text-lg leading-relaxed text-midnight-300">
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted dark:text-midnight-300">
             {{ page.hero.description }}
           </p>
         </Motion>
@@ -132,7 +132,7 @@ const motionAnimate = {
               color="neutral"
               variant="outline"
               size="xl"
-              class="transition rounded-full bg-transparent px-8 py-4 text-base font-semibold text-white ring-white/25 hover:bg-white/5"
+              class="transition rounded-full bg-transparent px-8 py-4 text-base font-semibold text-highlighted ring-default hover:bg-elevated/50 dark:ring-white/25 dark:hover:bg-white/5"
             >
               {{ secondaryLink.label }}
             </UButton>

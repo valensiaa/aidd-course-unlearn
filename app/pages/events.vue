@@ -101,7 +101,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
               <!-- Date block -->
               <time
                 :datetime="event.date.slice(0, 10)"
-                class="flex w-20 shrink-0 flex-col items-center rounded-2xl bg-midnight-900/70 py-3 ring-1 ring-mentora-500/30"
+                class="flex w-20 shrink-0 flex-col items-center rounded-2xl bg-elevated/40 py-3 dark:bg-midnight-900/70 ring-1 ring-mentora-500/30"
               >
                 <span class="text-xs font-semibold uppercase tracking-widest text-mentora-400">{{ formatMonth(event.date) }}</span>
                 <span class="text-gradient-brand font-heading text-4xl font-bold leading-tight">{{ formatDay(event.date) }}</span>
@@ -125,7 +125,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
                 >
                   {{ event.description }}
                 </p>
-                <p class="mt-3 flex items-center gap-1.5 text-sm text-midnight-300">
+                <p class="mt-3 flex items-center gap-1.5 text-sm text-muted dark:text-midnight-300">
                   <UIcon
                     name="i-lucide-map-pin"
                     class="size-4"
@@ -171,7 +171,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
             :in-view-options="{ once: true }"
             class="flex flex-col gap-2 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
           >
-            <p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-midnight-300">
+            <p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted dark:text-midnight-300">
               <UIcon
                 :name="CATEGORY_ICONS[event.category]"
                 class="size-4 text-mentora-400"

@@ -104,7 +104,7 @@ function onTabKeydown(event: KeyboardEvent) {
                 item: 'glass-warm rounded-2xl border-none',
                 trigger: 'group px-6 py-5 font-heading text-base font-medium text-highlighted sm:text-lg cursor-pointer',
                 trailingIcon: 'size-5 text-mentora-400 transition-transform duration-300 group-data-[state=open]:rotate-135',
-                body: 'px-6 pb-6 pt-0 text-white leading-relaxed'
+                body: 'px-6 pb-6 pt-0 text-highlighted leading-relaxed'
               }"
             >
               <template #body="{ item }">

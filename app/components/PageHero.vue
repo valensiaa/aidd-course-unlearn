@@ -45,7 +45,7 @@ const motionAnimate = { y: 0, opacity: 1, filter: 'blur(0px)' }
           :animate="motionAnimate"
           :transition="{ duration: 0.6, delay: 0.05 }"
         >
-          <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-midnight-900/60 px-4 py-1.5 text-sm font-medium text-mentora-400 ring-1 ring-mentora-500/40 backdrop-blur">
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-elevated/40 px-4 py-1.5 text-sm font-medium text-mentora-400 ring-1 ring-mentora-500/40 backdrop-blur dark:bg-midnight-900/60">
             {{ eyebrow }}
           </p>
         </Motion>

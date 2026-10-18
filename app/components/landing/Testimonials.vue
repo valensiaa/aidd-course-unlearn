@@ -114,7 +114,7 @@ useSwipe(stage, {
         <div
           aria-hidden="true"
           class="absolute top-0 right-0 size-10 transition-colors duration-700 [clip-path:polygon(0_0,0_100%,100%_100%)]"
-          :class="offsetOf(index) === 0 ? 'bg-gradient-brand' : 'bg-white/10'"
+          :class="offsetOf(index) === 0 ? 'bg-gradient-brand' : 'bg-midnight-200 dark:bg-white/10'"
         />
 
         <div class="relative flex h-full flex-col">
@@ -124,7 +124,7 @@ useSwipe(stage, {
           >“</span>
           <blockquote
             class="mt-2 line-clamp-7 text-base leading-relaxed font-medium transition-colors duration-700 sm:text-[1.0625rem]"
-            :class="offsetOf(index) === 0 ? 'text-midnight-950' : 'text-white'"
+            :class="offsetOf(index) === 0 ? 'text-midnight-950' : 'text-highlighted'"
           >
             {{ item.quote }}
           </blockquote>
@@ -139,13 +139,13 @@ useSwipe(stage, {
             <div>
               <p
                 class="font-heading font-semibold transition-colors duration-700"
-                :class="offsetOf(index) === 0 ? 'text-midnight-950' : 'text-white'"
+                :class="offsetOf(index) === 0 ? 'text-midnight-950' : 'text-highlighted'"
               >
                 {{ item.author.name }}
               </p>
               <p
                 class="text-sm transition-colors duration-700"
-                :class="offsetOf(index) === 0 ? 'text-midnight-600' : 'text-midnight-300'"
+                :class="offsetOf(index) === 0 ? 'text-midnight-600' : 'text-muted dark:text-midnight-300'"
               >
                 {{ item.author.description }}
               </p>
