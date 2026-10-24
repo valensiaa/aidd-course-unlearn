@@ -13,6 +13,10 @@ const CARD_BLOBS: BlobVariantName[] = ['ember', 'shard', 'bloom', 'dusk']
 
 // In a grid of six, only the hovered card's blob moves, at the hero's hover speed
 const hoveredCard = ref<number>()
+
+// No booking flow yet: booking requests go to Mentora by email
+const { global } = useAppConfig()
+const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeURIComponent(`Book a class with ${name}`)}`
 </script>
 
 <template>
@@ -128,6 +132,7 @@ const hoveredCard = ref<number>()
               <UButton
                 label="Book a class"
                 :aria-label="`Book a class with ${teacher.name}`"
+                :to="bookingLink(teacher.name)"
                 size="md"
                 trailing-icon="i-lucide-arrow-right"
                 class="bg-gradient-brand btn-glow rounded-full text-white transition hover:opacity-90"

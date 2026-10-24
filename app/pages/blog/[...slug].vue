@@ -12,7 +12,7 @@ if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not f
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryCollectionItemSurroundings('blog', route.path, {
     fields: ['description', 'image', 'date', 'minRead']
-  })
+  }).order('date', 'DESC')
 )
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation', ref([]))
