@@ -71,6 +71,7 @@ function trapFocus(event: KeyboardEvent) {
       ref="playButton"
       type="button"
       aria-label="Play video"
+      data-testid="video-play"
       aria-haspopup="dialog"
       class="bg-gradient-brand btn-glow absolute inset-0 z-10 m-auto grid size-20 cursor-pointer place-items-center rounded-full text-white transition hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       @click="openPlayer"
@@ -95,6 +96,7 @@ function trapFocus(event: KeyboardEvent) {
         role="dialog"
         aria-modal="true"
         aria-label="Mentora video"
+        data-testid="video-dialog"
         class="fixed inset-0 z-[100] grid place-items-center p-4 sm:p-10"
         @click.self="closePlayer"
         @keydown="trapFocus"
@@ -121,6 +123,7 @@ function trapFocus(event: KeyboardEvent) {
             ref="closeButton"
             type="button"
             aria-label="Close video"
+            data-testid="video-close"
             class="absolute top-3 right-3 z-10 grid size-11 cursor-pointer place-items-center rounded-full text-white ring-1 ring-white/25 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             @click="closePlayer"
           >

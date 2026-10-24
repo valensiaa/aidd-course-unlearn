@@ -4,6 +4,7 @@ const { footer } = useAppConfig()
 
 <template>
   <UFooter
+    data-testid="site-footer"
     class="z-10 bg-default"
     :ui="{ left: 'text-muted text-xs' }"
   >

@@ -57,6 +57,7 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
         >
           <NuxtLink
             :to="featured.path"
+            data-testid="blog-featured"
             class="group glass-warm grid overflow-hidden rounded-3xl transition hover:-translate-y-1 md:grid-cols-2"
           >
             <div class="overflow-hidden">
@@ -72,7 +73,10 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
               <p class="text-xs font-semibold uppercase tracking-widest text-mentora-400">
                 Latest article · {{ formatDate(featured.date) }} · {{ featured.minRead }} min read
               </p>
-              <h2 class="font-heading text-2xl font-bold leading-tight text-highlighted sm:text-3xl">
+              <h2
+                data-testid="blog-post-title"
+                class="font-heading text-2xl font-bold leading-tight text-highlighted sm:text-3xl"
+              >
                 {{ featured.title }}
               </h2>
               <p class="leading-relaxed text-muted">
@@ -112,6 +116,7 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
           >
             <NuxtLink
               :to="post.path"
+              data-testid="blog-post-card"
               class="group glass-warm flex h-full flex-col overflow-hidden rounded-2xl transition hover:-translate-y-1"
             >
               <div class="overflow-hidden">
@@ -128,7 +133,10 @@ const formatDate = (date: string) => new Date(date).toLocaleDateString('en-US', 
                 <p class="text-xs font-semibold uppercase tracking-widest text-mentora-400">
                   {{ formatDate(post.date) }} · {{ post.minRead }} min read
                 </p>
-                <h2 class="font-heading text-xl font-semibold leading-snug text-highlighted">
+                <h2
+                  data-testid="blog-post-title"
+                  class="font-heading text-xl font-semibold leading-snug text-highlighted"
+                >
                   {{ post.title }}
                 </h2>
                 <p class="line-clamp-3 text-sm leading-relaxed text-muted">

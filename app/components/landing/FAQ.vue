@@ -67,6 +67,7 @@ function onTabKeydown(event: KeyboardEvent) {
             :key="category.title"
             type="button"
             role="tab"
+            data-testid="faq-tab"
             :aria-selected="active === index"
             :aria-controls="`faq-panel-${index}`"
             :tabindex="active === index ? 0 : -1"
@@ -92,6 +93,7 @@ function onTabKeydown(event: KeyboardEvent) {
             :id="`faq-panel-${active}`"
             :key="active"
             role="tabpanel"
+            data-testid="faq-panel"
             :aria-labelledby="`faq-tab-${active}`"
             class="mt-6"
           >
@@ -107,11 +109,16 @@ function onTabKeydown(event: KeyboardEvent) {
                 body: 'px-6 pb-6 pt-0 text-highlighted leading-relaxed'
               }"
             >
+              <template #default="{ item }">
+                <span data-testid="faq-question">{{ item.label }}</span>
+              </template>
               <template #body="{ item }">
-                <MDC
-                  :value="item.content"
-                  unwrap="p"
-                />
+                <div data-testid="faq-answer">
+                  <MDC
+                    :value="item.content"
+                    unwrap="p"
+                  />
+                </div>
               </template>
             </UAccordion>
           </div>

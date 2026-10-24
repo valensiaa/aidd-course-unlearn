@@ -14,6 +14,7 @@ const [primaryLink, ...otherLinks] = props.page.cta.links
 <template>
   <section
     id="cta"
+    data-testid="cta-section"
     class="overflow-x-clip py-20 sm:py-28"
   >
     <UContainer class="max-w-7xl">
@@ -58,6 +59,7 @@ const [primaryLink, ...otherLinks] = props.page.cta.links
             <div class="mt-10 flex flex-wrap items-center gap-4">
               <UButton
                 v-if="primaryLink"
+                data-testid="cta-primary"
                 :to="primaryLink.to"
                 :icon="primaryLink.icon"
                 trailing-icon="i-lucide-arrow-right"
@@ -69,6 +71,7 @@ const [primaryLink, ...otherLinks] = props.page.cta.links
               <UButton
                 v-for="link in otherLinks"
                 :key="link.label"
+                data-testid="cta-secondary"
                 :to="link.to"
                 :icon="link.icon"
                 :target="link.target"

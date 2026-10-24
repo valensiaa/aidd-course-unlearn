@@ -55,7 +55,10 @@ const motionAnimate = { y: 0, opacity: 1, filter: 'blur(0px)' }
           :animate="motionAnimate"
           :transition="{ duration: 0.6, delay: 0.1 }"
         >
-          <h1 class="text-4xl font-bold leading-[1.08] tracking-tight text-highlighted sm:text-5xl lg:text-6xl">
+          <h1
+            data-testid="page-title"
+            class="text-4xl font-bold leading-[1.08] tracking-tight text-highlighted sm:text-5xl lg:text-6xl"
+          >
             {{ titleParts.lead }} <span class="text-gradient-brand">{{ titleParts.highlight }}</span>
           </h1>
         </Motion>

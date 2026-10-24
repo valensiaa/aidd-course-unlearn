@@ -48,7 +48,7 @@ const motionAnimate = {
       <!-- Copy -->
       <div class="max-w-xl">
         <Motion :initial="motionInitial" :animate="motionAnimate" :transition="{ duration: 0.6, delay: 0.1 }">
-          <NuxtLink to="#teachers"
+          <NuxtLink to="#teachers" data-testid="hero-teachers-badge"
             class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-elevated/40 py-1.5 pl-1.5 pr-4 text-xs text-highlighted dark:bg-midnight-900/60 sm:text-sm backdrop-blur transition hover:border-mentora-500/70">
             <span class="flex -space-x-2.5">
               <NuxtImg v-for="(avatar, index) in avatars" :key="index" :src="avatar.src" :alt="avatar.alt" width="36"
@@ -64,7 +64,7 @@ const motionAnimate = {
         </Motion>
 
         <Motion :initial="motionInitial" :animate="motionAnimate" :transition="{ duration: 0.6, delay: 0.2 }">
-          <h1 class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-highlighted sm:text-5xl lg:text-6xl">
+          <h1 data-testid="page-title" class="mt-8 text-4xl font-bold leading-[1.08] tracking-tight text-highlighted sm:text-5xl lg:text-6xl">
             <span v-for="(line, index) in titleParts.lead" :key="index" class="block">{{ line }}</span>
             <span class="text-gradient-brand">{{ titleParts.highlight }}</span>
           </h1>
@@ -78,12 +78,12 @@ const motionAnimate = {
 
         <Motion :initial="motionInitial" :animate="motionAnimate" :transition="{ duration: 0.6, delay: 0.4 }">
           <div class="mt-10 flex flex-wrap items-center gap-4">
-            <UButton v-if="primaryLink" :to="primaryLink.to" :icon="primaryLink.icon"
+            <UButton v-if="primaryLink" data-testid="hero-primary-cta" :to="primaryLink.to" :icon="primaryLink.icon"
               trailing-icon="i-lucide-arrow-right" size="xl"
               class="bg-gradient-brand btn-glow transition rounded-full px-8 py-4 text-base font-semibold text-white hover:opacity-90">
               {{ primaryLink.label }}
             </UButton>
-            <UButton v-if="secondaryLink" :to="secondaryLink.to" color="neutral" variant="outline" size="xl"
+            <UButton v-if="secondaryLink" data-testid="hero-secondary-cta" :to="secondaryLink.to" color="neutral" variant="outline" size="xl"
               class="transition rounded-full bg-transparent px-8 py-4 text-base font-semibold text-highlighted ring-default hover:bg-elevated/50 dark:ring-white/25 dark:hover:bg-white/5">
               {{ secondaryLink.label }}
             </UButton>

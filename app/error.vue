@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import type { ButtonProps } from '@nuxt/ui'
 
 defineProps({
   error: {
@@ -7,6 +8,9 @@ defineProps({
     required: true
   }
 })
+
+// Nuxt UI forwards data attributes to the button but its props type doesn't declare them
+const backHome = { 'data-testid': 'error-back-home' } as ButtonProps
 
 useHead({
   htmlAttrs: {
@@ -45,7 +49,11 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     <UMain>
       <UContainer>
         <UPage>
-          <UError :error="error" />
+          <UError
+            :error="error"
+            :clear="backHome"
+            data-testid="error-page"
+          />
         </UPage>
       </UContainer>
     </UMain>

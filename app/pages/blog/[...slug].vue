@@ -77,6 +77,7 @@ const formatDate = (dateString: string) => {
       <UPage v-if="page">
         <ULink
           to="/blog"
+          data-testid="article-back"
           class="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-highlighted"
         >
           <UIcon
@@ -95,7 +96,10 @@ const formatDate = (dateString: string) => {
             <span v-if="page.date && page.minRead"> · </span>
             <span v-if="page.minRead">{{ page.minRead }} min read</span>
           </p>
-          <h1 class="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-highlighted sm:text-5xl">
+          <h1
+            data-testid="page-title"
+            class="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-highlighted sm:text-5xl"
+          >
             {{ page.title }}
           </h1>
           <p class="max-w-2xl text-lg leading-relaxed text-muted">
@@ -153,6 +157,7 @@ const formatDate = (dateString: string) => {
               color="neutral"
               icon="i-lucide-link"
               label="Copy link"
+              data-testid="article-copy-link"
               class="rounded-full"
               @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
             />
@@ -161,12 +166,14 @@ const formatDate = (dateString: string) => {
           <nav
             v-if="neighbours.length"
             aria-label="More articles"
+            data-testid="article-nav"
             class="grid gap-6 sm:grid-cols-2"
           >
             <NuxtLink
               v-for="item in neighbours"
               :key="item.path"
               :to="item.path"
+              :data-testid="item.side === 'left' ? 'article-nav-previous' : 'article-nav-next'"
               class="group glass-warm flex flex-col overflow-hidden rounded-2xl transition hover:-translate-y-1"
               :class="item.side === 'right' ? 'sm:col-start-2 sm:text-right' : ''"
             >
@@ -200,7 +207,10 @@ const formatDate = (dateString: string) => {
                     aria-hidden="true"
                   />
                 </p>
-                <h2 class="font-heading text-xl font-semibold leading-snug text-highlighted">
+                <h2
+                  data-testid="article-nav-title"
+                  class="font-heading text-xl font-semibold leading-snug text-highlighted"
+                >
                   {{ item.title }}
                 </h2>
                 <p class="line-clamp-2 text-sm leading-relaxed text-muted">

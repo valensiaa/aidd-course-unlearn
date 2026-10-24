@@ -42,6 +42,7 @@ const [firstImage, secondImage] = page.value.images
         </UButton>
         <UButton
           to="/subjects"
+          data-testid="about-browse-subjects"
           color="neutral"
           variant="outline"
           size="xl"
@@ -154,6 +155,7 @@ const [firstImage, secondImage] = page.value.images
             :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
             :transition="{ delay: 0.08 * index }"
             :in-view-options="{ once: true }"
+            data-testid="about-value"
             class="glass-warm flex flex-col gap-4 rounded-2xl p-6 transition hover:-translate-y-1"
           >
             <span class="flex size-11 items-center justify-center rounded-full bg-mentora-500/10 text-mentora-400 ring-1 ring-mentora-500/40">

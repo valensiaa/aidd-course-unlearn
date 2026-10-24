@@ -64,6 +64,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
       <template #actions>
         <UButton
           v-if="suggestLink"
+          data-testid="events-suggest-topic"
           :to="`mailto:${global.email}?subject=Event topic suggestion`"
           :icon="suggestLink.icon"
           trailing-icon="i-lucide-arrow-right"
@@ -97,10 +98,14 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
             :transition="{ delay: 0.08 * index }"
             :in-view-options="{ once: true }"
           >
-            <article class="glass-warm flex flex-col gap-5 rounded-2xl p-6 transition hover:-translate-y-0.5 sm:flex-row sm:items-center sm:gap-8 sm:p-7">
+            <article
+              data-testid="upcoming-event"
+              class="glass-warm flex flex-col gap-5 rounded-2xl p-6 transition hover:-translate-y-0.5 sm:flex-row sm:items-center sm:gap-8 sm:p-7"
+            >
               <!-- Date block -->
               <time
                 :datetime="event.date.slice(0, 10)"
+                data-testid="event-date"
                 class="flex w-20 shrink-0 flex-col items-center rounded-2xl bg-elevated/40 py-3 dark:bg-midnight-900/70 ring-1 ring-mentora-500/30"
               >
                 <span class="text-xs font-semibold uppercase tracking-widest text-mentora-400">{{ formatMonth(event.date) }}</span>
@@ -116,7 +121,10 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
                   />
                   {{ event.category }}
                 </p>
-                <h3 class="mt-1.5 font-heading text-xl font-semibold text-highlighted sm:text-2xl">
+                <h3
+                  data-testid="event-title"
+                  class="mt-1.5 font-heading text-xl font-semibold text-highlighted sm:text-2xl"
+                >
                   {{ event.title }}
                 </h3>
                 <p
@@ -169,6 +177,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
             :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
             :transition="{ delay: 0.06 * (index % 3) }"
             :in-view-options="{ once: true }"
+            data-testid="past-event"
             class="flex flex-col gap-2 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
           >
             <p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted dark:text-midnight-300">
@@ -179,9 +188,15 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
               />
               {{ event.category }}
               <span aria-hidden="true">·</span>
-              <time :datetime="event.date.slice(0, 10)">{{ formatFull(event.date) }}</time>
+              <time
+                :datetime="event.date.slice(0, 10)"
+                data-testid="event-date"
+              >{{ formatFull(event.date) }}</time>
             </p>
-            <h3 class="font-heading text-lg font-semibold text-highlighted">
+            <h3
+              data-testid="event-title"
+              class="font-heading text-lg font-semibold text-highlighted"
+            >
               {{ event.title }}
             </h3>
             <p class="text-sm text-muted">

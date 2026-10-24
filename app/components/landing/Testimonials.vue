@@ -84,6 +84,7 @@ useSwipe(stage, {
       role="region"
       aria-roledescription="carousel"
       aria-label="Testimonials"
+      data-testid="testimonials-carousel"
       class="relative mt-14 h-[27rem] touch-pan-y [--card-w:min(26rem,84vw)] [--step:80vw] sm:[--step:19rem] lg:[--step:21rem]"
     >
       <!-- Right blob, placed against the cards so its top third shows above the right-hand ones -->
@@ -97,6 +98,7 @@ useSwipe(stage, {
         :key="item.author.name"
         role="group"
         aria-roledescription="slide"
+        data-testid="testimonial-slide"
         :aria-label="`${index + 1} of ${items.length}`"
         :aria-hidden="offsetOf(index) !== 0"
         class="glass-warm absolute top-4 left-[calc(50%-var(--card-w)/2)] flex h-[23rem] w-(--card-w) flex-col overflow-hidden rounded-xl p-7 transition-[transform,opacity] duration-700 ease-[cubic-bezier(.22,1,.36,1)] [clip-path:polygon(0_0,calc(100%-2.5rem)_0,100%_2.5rem,100%_100%,0_100%)] motion-reduce:transition-none"
@@ -158,6 +160,7 @@ useSwipe(stage, {
       <p
         class="sr-only"
         aria-live="polite"
+        data-testid="testimonials-status"
       >
         Testimonial {{ active + 1 }} of {{ items.length }}: {{ items[active]?.author.name }}
       </p>
@@ -167,6 +170,7 @@ useSwipe(stage, {
       <UButton
         icon="i-lucide-arrow-left"
         aria-label="Previous testimonial"
+        data-testid="testimonials-prev"
         color="neutral"
         variant="outline"
         size="xl"
@@ -176,6 +180,7 @@ useSwipe(stage, {
       <UButton
         icon="i-lucide-arrow-right"
         aria-label="Next testimonial"
+        data-testid="testimonials-next"
         size="xl"
         class="bg-gradient-brand btn-glow rounded-full text-white transition hover:opacity-90"
         @click="go(1)"

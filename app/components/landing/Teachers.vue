@@ -22,6 +22,7 @@ const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeUR
 <template>
   <section
     id="teachers"
+    data-testid="teachers-section"
     class="py-20 sm:py-28"
   >
     <UContainer class="max-w-7xl">
@@ -62,6 +63,7 @@ const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeUR
           :in-view-options="{ once: true }"
         >
           <article
+            data-testid="teacher-card"
             class="group flex h-full flex-col gap-5 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
             @mouseenter="hoveredCard = index"
             @mouseleave="hoveredCard = undefined"
@@ -97,7 +99,10 @@ const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeUR
                 </div>
               </div>
               <div class="min-w-0">
-                <h3 class="font-heading text-xl font-semibold text-highlighted">
+                <h3
+                  data-testid="teacher-name"
+                  class="font-heading text-xl font-semibold text-highlighted"
+                >
                   {{ teacher.name }}
                 </h3>
                 <p class="text-sm font-medium text-mentora-400">
@@ -132,6 +137,7 @@ const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeUR
               <UButton
                 label="Book a class"
                 :aria-label="`Book a class with ${teacher.name}`"
+                data-testid="teacher-book"
                 :to="bookingLink(teacher.name)"
                 size="md"
                 trailing-icon="i-lucide-arrow-right"
