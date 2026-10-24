@@ -13,11 +13,16 @@ const CARD_BLOBS: BlobVariantName[] = ['ember', 'shard', 'bloom', 'dusk']
 
 // In a grid of six, only the hovered card's blob moves, at the hero's hover speed
 const hoveredCard = ref<number>()
+
+// No booking flow yet: booking requests go to Mentora by email
+const { global } = useAppConfig()
+const bookingLink = (name: string) => `mailto:${global.email}?subject=${encodeURIComponent(`Book a class with ${name}`)}`
 </script>
 
 <template>
   <section
     id="teachers"
+    data-testid="teachers-section"
     class="py-20 sm:py-28"
   >
     <UContainer class="max-w-7xl">
@@ -58,6 +63,7 @@ const hoveredCard = ref<number>()
           :in-view-options="{ once: true }"
         >
           <article
+            data-testid="teacher-card"
             class="group flex h-full flex-col gap-5 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
             @mouseenter="hoveredCard = index"
             @mouseleave="hoveredCard = undefined"
@@ -93,7 +99,10 @@ const hoveredCard = ref<number>()
                 </div>
               </div>
               <div class="min-w-0">
-                <h3 class="font-heading text-xl font-semibold text-highlighted">
+                <h3
+                  data-testid="teacher-name"
+                  class="font-heading text-xl font-semibold text-highlighted"
+                >
                   {{ teacher.name }}
                 </h3>
                 <p class="text-sm font-medium text-mentora-400">
@@ -128,6 +137,8 @@ const hoveredCard = ref<number>()
               <UButton
                 label="Book a class"
                 :aria-label="`Book a class with ${teacher.name}`"
+                data-testid="teacher-book"
+                :to="bookingLink(teacher.name)"
                 size="md"
                 trailing-icon="i-lucide-arrow-right"
                 class="bg-gradient-brand btn-glow rounded-full text-white transition hover:opacity-90"

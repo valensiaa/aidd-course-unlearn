@@ -3,7 +3,7 @@ title: The Psychology of Color in UI Design
 description: Exploring how strategic color choices can influence user behavior,
   evoke emotions, and enhance the overall user experience of digital products.
 date: 2025-03-15
-image: https://images.pexels.com/photos/40799/paper-colorful-color-loose-40799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+image: /blog/psychology-of-color-in-ui-design-og.png
 minRead: 5
 author:
   name: Emma Thompson

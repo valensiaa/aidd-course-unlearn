@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { ButtonProps, NavigationMenuItem } from '@nuxt/ui'
 
 defineProps<{
   links: NavigationMenuItem[]
@@ -15,10 +15,14 @@ const route = useRoute()
 watch(() => route.fullPath, () => {
   menuOpen.value = false
 })
+
+// Nuxt UI forwards data attributes to the close button but its props type doesn't declare them
+const menuClose = { 'data-testid': 'mobile-menu-close' } as ButtonProps
 </script>
 
 <template>
   <header
+    data-testid="site-header"
     class="fixed inset-x-0 top-0 z-50 transition duration-300"
     :class="scrolled ? 'bg-default/70 backdrop-blur-md shadow-[0_1px_0_0] shadow-white/5' : ''"
   >
@@ -30,6 +34,7 @@ watch(() => route.fullPath, () => {
       <UNavigationMenu
         :items="links"
         variant="link"
+        data-testid="nav-desktop"
         color="neutral"
         class="px-2 sm:px-4 max-md:hidden md:absolute md:left-1/2 md:-translate-x-1/2"
         :ui="{
@@ -45,6 +50,7 @@ watch(() => route.fullPath, () => {
       <div class="flex items-center gap-2">
         <UButton
           to="/#teachers"
+          data-testid="header-find-teacher"
           trailing-icon="i-lucide-arrow-right"
           class="bg-gradient-brand btn-glow rounded-full px-5 py-2 font-semibold text-white transition hover:opacity-90 max-sm:hidden"
         >
@@ -55,19 +61,24 @@ watch(() => route.fullPath, () => {
         <USlideover
           v-model:open="menuOpen"
           title="Menu"
+          :close="menuClose"
           class="md:hidden"
           :ui="{ content: 'max-w-xs' }"
         >
           <UButton
             icon="i-lucide-menu"
             aria-label="Open menu"
+            data-testid="mobile-menu-open"
             color="neutral"
             variant="outline"
             class="rounded-full md:hidden"
           />
 
           <template #body>
-            <div class="flex h-full flex-col gap-6">
+            <div
+              data-testid="mobile-menu"
+              class="flex h-full flex-col gap-6"
+            >
               <UNavigationMenu
                 :items="links"
                 orientation="vertical"
@@ -80,6 +91,7 @@ watch(() => route.fullPath, () => {
               </div>
               <UButton
                 to="/#teachers"
+                data-testid="mobile-menu-find-teacher"
                 trailing-icon="i-lucide-arrow-right"
                 size="lg"
                 block

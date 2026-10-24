@@ -77,6 +77,7 @@ const hoveredCard = ref<number>()
             :in-view-options="{ once: true }"
           >
             <article
+              data-testid="subject-card"
               class="group glass-warm flex h-full flex-col overflow-hidden rounded-2xl transition hover:-translate-y-1"
               @mouseenter="hoveredCard = index"
               @mouseleave="hoveredCard = undefined"
@@ -116,7 +117,10 @@ const hoveredCard = ref<number>()
                       aria-hidden="true"
                     />
                   </span>
-                  <h2 class="font-heading text-xl font-semibold text-highlighted">
+                  <h2
+                    data-testid="subject-title"
+                    class="font-heading text-xl font-semibold text-highlighted"
+                  >
                     {{ subject.title }}
                   </h2>
                 </div>
@@ -130,6 +134,7 @@ const hoveredCard = ref<number>()
                   <li
                     v-for="topic in subject.topics"
                     :key="topic"
+                    data-testid="subject-topic"
                     class="rounded-full px-3 py-1 text-xs font-medium text-muted ring-1 dark:text-midnight-200 ring-default"
                   >
                     {{ topic }}
@@ -137,6 +142,7 @@ const hoveredCard = ref<number>()
                 </ul>
                 <ULink
                   to="/#teachers"
+                  data-testid="subject-find-teacher"
                   class="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-mentora-400 hover:text-mentora-300"
                   :aria-label="`Find a ${subject.title.toLowerCase()} teacher`"
                 >

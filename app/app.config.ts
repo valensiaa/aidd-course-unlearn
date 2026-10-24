@@ -29,17 +29,20 @@ export default defineAppConfig({
       'icon': 'i-simple-icons-discord',
       'to': 'https://go.nuxt.com/discord',
       'target': '_blank',
-      'aria-label': 'Mentora on Discord'
+      'aria-label': 'Mentora on Discord',
+      'data-testid': 'footer-link-discord'
     }, {
       'icon': 'i-simple-icons-x',
       'to': 'https://go.nuxt.com/x',
       'target': '_blank',
-      'aria-label': 'Mentora on X'
+      'aria-label': 'Mentora on X',
+      'data-testid': 'footer-link-x'
     }, {
       'icon': 'i-simple-icons-github',
       'to': 'https://github.com/nuxt/ui',
       'target': '_blank',
-      'aria-label': 'Mentora on GitHub'
+      'aria-label': 'Mentora on GitHub',
+      'data-testid': 'footer-link-github'
     }]
   }
 })

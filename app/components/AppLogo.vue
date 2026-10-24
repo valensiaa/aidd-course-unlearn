@@ -7,6 +7,7 @@ const active = ref(false)
 <template>
   <NuxtLink
     to="/"
+    data-testid="header-logo"
     aria-label="Mentora home"
     class="group flex items-center gap-2.5 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mentora-400"
     @mouseenter="active = true"
