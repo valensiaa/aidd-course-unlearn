@@ -65,7 +65,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 
 **Expected Results:**
 - Banner contains the "Mentora home" link, a navigation with Home, Subjects, Events, Blog, About, the theme toggle
-  button and a "Find a teacher" link to `/#teachers`.
+  button and a "Find a teacher" link to `/teachers`.
 - Footer contains links "Mentora on Discord", "Mentora on X", "Mentora on GitHub".
 - Every page except blog articles ends with the CTA heading "Your next breakthrough is one lesson away".
 
@@ -95,15 +95,15 @@ action, a mobile slide-over menu, and a custom 404 page.
 **Expected Results:**
 - URL is `/` and the hero H1 is visible.
 
-#### 2.3 Header "Find a teacher" jumps to the teachers section from any page
+#### 2.3 Header "Find a teacher" opens the teachers page from any page
 
 **Steps:**
 1. Navigate to `/events`.
 2. Click "Find a teacher" in the banner.
 
 **Expected Results:**
-- URL is `/#teachers`.
-- Heading "Meet a few of our teachers" is in the viewport.
+- URL is `/teachers`.
+- The teacher search field is visible.
 
 ---
 
@@ -120,7 +120,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 4. Click "Events" inside the "Menu" dialog.
 
 **Expected Results:**
-- Step 3: a dialog named "Menu" opens containing the 5 nav links, a "Theme" toggle, and "Find a teacher".
+- Step 3: a dialog named "Menu" opens containing the 5 nav links, a "Theme" toggle, and "Find a teacher" (links to `/teachers`).
 - Step 4: URL becomes `/events` and the dialog closes automatically.
 - No horizontal scroll on the page (`scrollWidth <= innerWidth`).
 
@@ -168,7 +168,8 @@ action, a mobile slide-over menu, and a custom 404 page.
 3. Click the avatars link "… 12,000+ passionate, vetted teachers".
 
 **Expected Results:**
-- "Find a teacher" and the avatars link scroll to `#teachers`.
+- "Find a teacher" scrolls to `#teachers`.
+- The avatars link opens the `/teachers` page.
 - "Become a teacher" scrolls to `#cta` ("Your next breakthrough is one lesson away" visible).
 
 #### 5.2 Hero video opens and closes
@@ -241,7 +242,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 
 **Expected Results:**
 - "Become a teacher" has `href="mailto:hello@mentora.com?subject=I want to teach on Mentora"`.
-- "Find a teacher" points to the teachers section.
+- "Find a teacher" points to the `/teachers` page.
 
 ---
 
@@ -396,7 +397,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 2. In the bottom CTA ("Your next breakthrough is one lesson away"), click "Find a teacher".
 
 **Expected Results:**
-- User lands on `/#teachers` with the teachers section in view.
+- User lands on `/teachers` with the teacher search visible.
 
 ---
 
@@ -406,7 +407,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 |---|---|---|---|
 | 1 | "Book a class" buttons had no action | 5.4 | Fixed: opens a booking email |
 | 2 | Blog prev/next ordered by file name, not by date | 8.5 | Fixed: surround query sorted by date |
-| 3 | Bottom-CTA "Find a teacher" was a dead anchor on every page except `/` | 10.2 | Fixed: links to `/#teachers` |
+| 3 | Bottom-CTA "Find a teacher" was a dead anchor on every page except `/` | 10.2 | Fixed: links to `/teachers` |
 | 4 | Copy: "Find a exams & writing teacher" | 6.2 | Open |
 
 ## Out of scope

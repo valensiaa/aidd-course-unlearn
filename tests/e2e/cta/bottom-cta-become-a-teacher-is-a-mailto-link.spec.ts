@@ -17,10 +17,10 @@ test.describe('Landing page interactions', () => {
       'mailto:hello@mentora.com?subject=I want to teach on Mentora'
     )
 
-    // "Find a teacher" points to the teachers section
+    // "Find a teacher" opens the teachers page
     await expect(page.getByTestId('cta-primary')).toHaveText('Find a teacher')
     await page.getByTestId('cta-primary').click()
-    await expect(page).toHaveURL('/#teachers')
-    await expect(page.getByTestId('teachers-section')).toBeInViewport()
+    await expect(page).toHaveURL('/teachers')
+    await expect(page.getByTestId('page-title')).toHaveText('Find your mentor', { useInnerText: true })
   })
 })

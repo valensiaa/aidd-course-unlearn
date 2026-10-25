@@ -25,7 +25,7 @@ test.describe('Mobile navigation', () => {
       await expect(menu.getByTestId(`nav-link-${slug}`)).toBeVisible()
     }
     await expect(menu.getByTestId('color-mode-toggle')).toBeVisible()
-    await expect(page.getByTestId('mobile-menu-find-teacher')).toHaveAttribute('href', '/#teachers')
+    await expect(page.getByTestId('mobile-menu-find-teacher')).toHaveAttribute('href', '/teachers')
 
     // 4. Click "Events" inside the "Menu" dialog.
     await menu.getByTestId('nav-link-events').click()

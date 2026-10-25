@@ -22,7 +22,7 @@ test.describe('Landing page interactions', () => {
     // 3. Click the avatars link "… 12,000+ passionate, vetted teachers".
     await page.evaluate(() => window.scrollTo(0, 0))
     await page.getByTestId('hero-teachers-badge').click()
-    await expect(page).toHaveURL('/#teachers')
-    await expect(page.getByTestId('teachers-section')).toBeInViewport()
+    await expect(page).toHaveURL('/teachers')
+    await expect(page.getByTestId('page-title')).toHaveText('Find your mentor', { useInnerText: true })
   })
 })

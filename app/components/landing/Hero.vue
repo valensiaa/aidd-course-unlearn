@@ -22,17 +22,6 @@ const [primaryLink, secondaryLink] = props.page.hero.links
 
 // Blobs speed up while the pointer is over the hero
 const blobsFast = ref(false)
-
-const motionInitial = {
-  y: 24,
-  opacity: 0,
-  filter: 'blur(12px)'
-}
-const motionAnimate = {
-  y: 0,
-  opacity: 1,
-  filter: 'blur(0px)'
-}
 </script>
 
 <template>
@@ -58,13 +47,12 @@ const motionAnimate = {
     >
       <!-- Copy -->
       <div class="max-w-xl">
-        <Motion
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.1 }"
+        <div
+          class="hero-enter"
+          style="--enter-delay: 100ms"
         >
           <NuxtLink
-            to="#teachers"
+            to="/teachers"
             data-testid="hero-teachers-badge"
             class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-elevated/40 py-1.5 pl-1.5 pr-4 text-xs text-highlighted dark:bg-midnight-900/60 sm:text-sm backdrop-blur transition hover:border-mentora-500/70"
           >
@@ -87,12 +75,11 @@ const motionAnimate = {
               class="size-4 text-mentora-400 transition group-hover:translate-x-0.5"
             />
           </NuxtLink>
-        </Motion>
+        </div>
 
-        <Motion
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.2 }"
+        <div
+          class="hero-enter"
+          style="--enter-delay: 200ms"
         >
           <h1
             data-testid="page-title"
@@ -105,22 +92,20 @@ const motionAnimate = {
             >{{ line }}</span>
             <span class="text-gradient-brand">{{ titleParts.highlight }}</span>
           </h1>
-        </Motion>
+        </div>
 
-        <Motion
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.3 }"
+        <div
+          class="hero-enter"
+          style="--enter-delay: 300ms"
         >
           <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted dark:text-midnight-300">
             {{ page.hero.description }}
           </p>
-        </Motion>
+        </div>
 
-        <Motion
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.4 }"
+        <div
+          class="hero-enter"
+          style="--enter-delay: 400ms"
         >
           <div class="mt-10 flex flex-wrap items-center gap-4">
             <UButton
@@ -146,15 +131,13 @@ const motionAnimate = {
               {{ secondaryLink.label }}
             </UButton>
           </div>
-        </Motion>
+        </div>
       </div>
 
       <!-- Visual -->
-      <Motion
-        :initial="{ scale: 0.95, opacity: 0, filter: 'blur(20px)' }"
-        :animate="{ scale: 1, opacity: 1, filter: 'blur(0px)' }"
-        :transition="{ duration: 0.8, delay: 0.3 }"
-        class="relative mx-auto w-full max-w-xl lg:max-w-none"
+      <div
+        class="hero-enter-visual relative mx-auto w-full max-w-xl lg:max-w-none"
+        style="--enter-delay: 300ms"
       >
         <BlobBackdrop
           v-parallax="0.06"
@@ -175,7 +158,7 @@ const motionAnimate = {
             class="size-full object-cover"
           />
         </LandingHeroVideo>
-      </Motion>
+      </div>
     </UContainer>
   </section>
 </template>
