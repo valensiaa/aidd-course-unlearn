@@ -2,8 +2,9 @@
 
 /* The fixed header follows the scroll, so it would land on top of whichever section is shot */
 [data-testid="site-header"],
-/* Nuxt DevTools' floating button, only present in dev */
-#nuxt-devtools-container {
+/* Nuxt DevTools' floating button and Nuxt's error toasts, only present in dev */
+#nuxt-devtools-container,
+nuxt-error-overlay {
   visibility: hidden !important;
 }
 

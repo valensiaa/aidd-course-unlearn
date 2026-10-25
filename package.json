@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "generate": "nuxt generate",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -17,7 +18,7 @@
     "@iconify-json/simple-icons": "^1.2.80",
     "@nuxt/content": "^3.13.0",
     "@nuxt/image": "^2.0.0",
-    "@nuxt/ui": "^4.7.1",
+    "@nuxt/ui": "^4.12.0",
     "@vueuse/nuxt": "^14.3.0",
     "better-sqlite3": "^12.9.0",
     "motion-v": "^2.2.1",
