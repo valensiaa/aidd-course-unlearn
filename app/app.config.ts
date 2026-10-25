@@ -6,7 +6,6 @@ export default defineAppConfig({
       alt: 'Mentora'
     },
     meetingLink: 'https://cal.com/',
-    email: 'hello@mentora.com',
     available: true
   },
   ui: {
@@ -24,25 +23,6 @@ export default defineAppConfig({
   },
   footer: {
     credits: `© ${new Date().getFullYear()} Mentora`,
-    colorMode: false,
-    links: [{
-      'icon': 'i-simple-icons-discord',
-      'to': 'https://go.nuxt.com/discord',
-      'target': '_blank',
-      'aria-label': 'Mentora on Discord',
-      'data-testid': 'footer-link-discord'
-    }, {
-      'icon': 'i-simple-icons-x',
-      'to': 'https://go.nuxt.com/x',
-      'target': '_blank',
-      'aria-label': 'Mentora on X',
-      'data-testid': 'footer-link-x'
-    }, {
-      'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/nuxt/ui',
-      'target': '_blank',
-      'aria-label': 'Mentora on GitHub',
-      'data-testid': 'footer-link-github'
-    }]
+    colorMode: false
   }
 })

@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Teachers', () => {
-  test('lists six teachers, each with a booking button', async ({ page }) => {
+  test('lists six teachers', async ({ page }) => {
     const names = page.getByTestId('teacher-name')
 
     await expect(names).toHaveText([
@@ -16,23 +16,7 @@ test.describe('Teachers', () => {
       'Priya Nair',
       'Marcus Bennett'
     ])
-    const cards = page.getByTestId('teacher-card')
-    await expect(cards).toHaveCount(6)
-    for (const card of await cards.all()) {
-      await expect(card.getByTestId('teacher-book')).toHaveText('Book a class')
-    }
-  })
-
-  test('"Book a class" opens a booking email for that teacher', async ({ page }) => {
-    const names = await page.getByTestId('teacher-name').allTextContents()
-    const buttons = page.getByTestId('teacher-book')
-
-    for (const [index, name] of names.entries()) {
-      await expect(buttons.nth(index)).toHaveAttribute(
-        'href',
-        `mailto:hello@mentora.com?subject=${encodeURIComponent(`Book a class with ${name.trim()}`)}`
-      )
-    }
+    await expect(page.getByTestId('teacher-card')).toHaveCount(6)
   })
 })
 

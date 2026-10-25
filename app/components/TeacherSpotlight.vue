@@ -2,19 +2,13 @@
 import type { Teacher } from '~/components/TeacherCard.vue'
 
 // Wide card that puts one teacher in the spotlight: a cut-out portrait on a blob on the left,
-// the full profile and booking actions on the right. Stacks on small screens.
+// the full profile on the right. Stacks on small screens.
 const props = withDefaults(defineProps<{
   teacher: Teacher
   blob?: BlobVariantName
 }>(), {
   blob: 'ember'
 })
-
-// No booking flow yet: booking requests and questions go to Mentora by email
-const { global } = useAppConfig()
-const mailto = (subject: string) => `mailto:${global.email}?subject=${encodeURIComponent(subject)}`
-const bookingLink = computed(() => mailto(`Book a class with ${props.teacher.name}`))
-const questionLink = computed(() => mailto(`A question for ${props.teacher.name}`))
 
 // The spotlight teacher changes with the search and filters, so its photo is often one the
 // static build never resized. Serve the original instead (already a small 3:4 WebP)
@@ -89,28 +83,6 @@ const photoSrc = computed(() => props.teacher.photo && `${baseURL}${props.teache
       <p class="max-w-prose leading-relaxed text-muted">
         {{ teacher.bio }}
       </p>
-
-      <div class="mt-auto flex flex-wrap gap-3 pt-2">
-        <UButton
-          label="Book a class"
-          :aria-label="`Book a class with ${teacher.name}`"
-          data-testid="spotlight-book"
-          :to="bookingLink"
-          size="lg"
-          trailing-icon="i-lucide-arrow-right"
-          class="bg-gradient-brand btn-glow rounded-full px-6 font-semibold text-white transition hover:opacity-90"
-        />
-        <UButton
-          label="Ask a question"
-          :aria-label="`Ask ${teacher.name} a question`"
-          :to="questionLink"
-          icon="i-lucide-message-circle"
-          color="neutral"
-          variant="outline"
-          size="lg"
-          class="rounded-full bg-transparent px-6 font-semibold text-highlighted ring-default transition hover:bg-elevated/50 dark:ring-white/25 dark:hover:bg-white/5"
-        />
-      </div>
     </div>
   </article>
 </template>

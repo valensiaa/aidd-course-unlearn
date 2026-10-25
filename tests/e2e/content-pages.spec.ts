@@ -70,13 +70,6 @@ test.describe('Events', () => {
   test('all nine events are shown across the two lists', async ({ page }) => {
     await expect(page.getByTestId('event-title')).toHaveCount(9)
   })
-
-  test('"Suggest a topic" opens an email', async ({ page }) => {
-    await expect(page.getByTestId('events-suggest-topic')).toHaveAttribute(
-      'href',
-      'mailto:hello@mentora.com?subject=Event topic suggestion'
-    )
-  })
 })
 
 test.describe('About', () => {
