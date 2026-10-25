@@ -58,11 +58,14 @@ export default defineContentConfig({
           items: z.array(z.object({
             name: z.string(),
             subject: z.string(),
+            // Subject areas the teacher covers, by file name in content/subjects (e.g. `music`)
+            subjects: z.array(z.string()),
             bio: z.string(),
             rating: z.number(),
             reviews: z.number(),
             price: z.string(),
             avatar: createImageSchema(),
+            featured: z.boolean().optional(),
             // Cut-out photo (transparent background) shown on a blob in the teacher's card
             photo: createImageSchema().optional()
           }))
@@ -113,6 +116,7 @@ export default defineContentConfig({
       type: 'page',
       source: [
         { include: 'subjects.yml' },
+        { include: 'teachers.yml' },
         { include: 'blog.yml' }
       ],
       schema: z.object({

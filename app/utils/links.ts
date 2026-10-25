@@ -11,6 +11,11 @@ export const navLinks: NavigationMenuItem[] = [{
   'icon': 'i-lucide-book-open',
   'to': '/subjects'
 }, {
+  'label': 'Teachers',
+  'data-testid': 'nav-link-teachers',
+  'icon': 'i-lucide-users',
+  'to': '/teachers'
+}, {
   'label': 'Events',
   'data-testid': 'nav-link-events',
   'icon': 'i-lucide-calendar',

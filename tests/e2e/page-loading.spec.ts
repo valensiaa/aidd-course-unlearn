@@ -3,6 +3,7 @@ import { test, expect } from './fixtures'
 const pages = [
   { path: '/', title: 'Mentora — Learn Anything, One-on-One with Expert Teachers', h1: 'Learn anything, one-on-one with a teacher who gets you' },
   { path: '/subjects', title: 'Find your subject, then find your teacher · Mentora', h1: 'Find your subject, then find your teacher' },
+  { path: '/teachers', title: 'Find your mentor · Mentora', h1: 'Find your mentor' },
   { path: '/events', title: 'Free events for curious learners · Mentora', h1: 'Free events for curious learners' },
   { path: '/blog', title: 'The Mentora Journal', h1: 'The Mentora Journal' },
   { path: '/about', title: 'Learning works best one-on-one · Mentora', h1: 'Learning works best one-on-one' }

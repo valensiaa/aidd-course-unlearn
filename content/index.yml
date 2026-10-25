@@ -62,10 +62,12 @@ teachers:
   items:
     - name: Sofía Herrera
       subject: Spanish & Conversation
+      subjects: [languages]
       bio: "Native speaker from Madrid with 8 years of teaching experience. Relaxed, conversation-first lessons for every level."
       rating: 4.9
       reviews: 412
       price: "$24 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Sofía Herrera
@@ -74,10 +76,12 @@ teachers:
         alt: Sofía Herrera
     - name: David Okafor
       subject: Mathematics & Physics
+      subjects: [mathematics, sciences]
       bio: "PhD candidate who makes hard ideas click. Specializes in exam prep, calculus, and building real intuition."
       rating: 5.0
       reviews: 287
       price: "$32 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: David Okafor
@@ -86,10 +90,12 @@ teachers:
         alt: David Okafor
     - name: Mei Tanaka
       subject: Japanese for Beginners
+      subjects: [languages]
       bio: "Patient, structured lessons from hiragana to first conversations. Lots of culture, lots of encouragement."
       rating: 4.9
       reviews: 198
       price: "$28 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Mei Tanaka
@@ -98,10 +104,12 @@ teachers:
         alt: Mei Tanaka
     - name: Liam O'Connor
       subject: Guitar & Music Theory
+      subjects: [music]
       bio: "Touring musician turned teacher. From your first chords to writing your own songs, at any age."
       rating: 4.8
       reviews: 326
       price: "$26 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Liam O'Connor
@@ -110,22 +118,180 @@ teachers:
         alt: Liam O'Connor
     - name: Priya Nair
       subject: Python & Data Science
+      subjects: [coding-and-data]
       bio: "Software engineer who teaches coding the way she wishes she'd learned it — hands-on, project by project."
       rating: 5.0
       reviews: 241
       price: "$38 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Priya Nair
     - name: Marcus Bennett
       subject: IELTS & English Writing
+      subjects: [languages, exams-and-writing]
       bio: "Former university lecturer focused on essays, fluency, and exam confidence. Honest feedback, real results."
       rating: 4.9
       reviews: 374
       price: "$30 / hr"
+      featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Marcus Bennett
+    - name: Amara Diallo
+      subject: French & Conversation
+      subjects: [languages]
+      bio: "Parisian-trained linguist who turns grammar into stories. Confident speaking from the very first lesson."
+      rating: 4.9
+      reviews: 263
+      price: "$27 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Amara Diallo
+    - name: Tomás Silva
+      subject: Chemistry
+      subjects: [sciences]
+      bio: "Lab-loving chemistry teacher who explains reactions with everyday examples. Great for high school and first-year university."
+      rating: 4.8
+      reviews: 154
+      price: "$29 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Tomás Silva
+    - name: Hannah Weber
+      subject: German for All Levels
+      subjects: [languages]
+      bio: "Born in Munich, teaching German for 10 years. Clear structure, real-life dialogues, and plenty of practice."
+      rating: 4.9
+      reviews: 231
+      price: "$26 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Hannah Weber
+    - name: Kenji Watanabe
+      subject: Piano & Composition
+      subjects: [music]
+      bio: "Conservatory graduate who teaches classical and pop piano. Reading music, technique, and playing what you love."
+      rating: 5.0
+      reviews: 178
+      price: "$34 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Kenji Watanabe
+    - name: Elena Popescu
+      subject: Algebra & Geometry
+      subjects: [mathematics]
+      bio: "Math teacher who helps nervous students find their footing. Step-by-step explanations and lots of worked examples."
+      rating: 4.9
+      reviews: 309
+      price: "$25 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Elena Popescu
+    - name: Omar Haddad
+      subject: Arabic for Beginners
+      subjects: [languages]
+      bio: "Friendly, patient lessons in Modern Standard Arabic and Levantine dialect, from the alphabet to everyday conversation."
+      rating: 4.8
+      reviews: 142
+      price: "$23 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Omar Haddad
+    - name: Grace Mensah
+      subject: Biology & Life Sciences
+      subjects: [sciences]
+      bio: "Former research assistant who brings biology to life with diagrams, real cases, and exam-focused revision."
+      rating: 4.9
+      reviews: 196
+      price: "$28 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Grace Mensah
+    - name: Lucas Moreau
+      subject: JavaScript & Web Development
+      subjects: [coding-and-data]
+      bio: "Full-stack developer teaching modern JavaScript, HTML and CSS by building real websites together."
+      rating: 4.9
+      reviews: 257
+      price: "$40 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Lucas Moreau
+    - name: Isabella Rossi
+      subject: Italian Language & Culture
+      subjects: [languages]
+      bio: "Born in Florence. Lessons full of food, film and travel phrases, so Italian feels natural from day one."
+      rating: 5.0
+      reviews: 164
+      price: "$25 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Isabella Rossi
+    - name: Daniel Kim
+      subject: SAT & ACT Prep
+      subjects: [exams-and-writing]
+      bio: "Test-prep coach with a proven plan: diagnose weak spots, master strategies, and raise your score with confidence."
+      rating: 4.8
+      reviews: 288
+      price: "$36 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Daniel Kim
+    - name: Chloé Laurent
+      subject: Singing & Vocal Technique
+      subjects: [music]
+      bio: "Professional vocalist teaching breath control, pitch and performance for beginners and aspiring singers."
+      rating: 4.9
+      reviews: 133
+      price: "$30 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Chloé Laurent
+    - name: Rahul Mehta
+      subject: Statistics & Excel
+      subjects: [mathematics, coding-and-data]
+      bio: "Data analyst who makes statistics practical. From averages to regression, with spreadsheets you'll actually use."
+      rating: 4.8
+      reviews: 121
+      price: "$33 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Rahul Mehta
+    - name: Zoe Papadopoulos
+      subject: Academic Essay Writing
+      subjects: [exams-and-writing]
+      bio: "Writing tutor who helps students plan, structure and polish essays, from school assignments to university theses."
+      rating: 4.9
+      reviews: 219
+      price: "$29 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Zoe Papadopoulos
+    - name: Ahmed Rahman
+      subject: Physics for High School
+      subjects: [sciences]
+      bio: "Engineer who loves explaining how things work. Mechanics, electricity and waves made visual and intuitive."
+      rating: 4.8
+      reviews: 167
+      price: "$27 / hr"
+      featured: false
+      avatar:
+        src: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Ahmed Rahman
 testimonials:
   title: Loved by learners everywhere
   description: "Real stories from students who found the right teacher on Mentora."

@@ -12,9 +12,10 @@ test.describe('Header navigation (desktop)', () => {
     })
     const nav = page.getByTestId('nav-desktop')
 
-    // 2. Click each nav link in turn: Subjects, Events, Blog, About, Home.
+    // 2. Click each nav link in turn: Subjects, Teachers, Events, Blog, About, Home.
     for (const { slug, path, h1 } of [
       { slug: 'subjects', path: '/subjects', h1: 'Find your subject, then find your teacher' },
+      { slug: 'teachers', path: '/teachers', h1: 'Find your mentor' },
       { slug: 'events', path: '/events', h1: 'Free events for curious learners' },
       { slug: 'blog', path: '/blog', h1: 'The Mentora Journal' },
       { slug: 'about', path: '/about', h1: 'Learning works best one-on-one' },
