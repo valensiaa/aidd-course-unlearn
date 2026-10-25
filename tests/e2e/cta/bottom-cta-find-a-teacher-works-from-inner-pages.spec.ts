@@ -12,8 +12,8 @@ test.describe('Error handling', () => {
       // 2. In the bottom CTA ("Your next breakthrough is one lesson away"), click "Find a teacher".
       await page.getByTestId('cta-primary').click()
 
-      await expect(page).toHaveURL('/#teachers')
-      await expect(page.getByTestId('teachers-section')).toBeInViewport()
+      await expect(page).toHaveURL('/teachers')
+      await expect(page.getByTestId('page-title')).toHaveText('Find your mentor', { useInnerText: true })
     }
   })
 })

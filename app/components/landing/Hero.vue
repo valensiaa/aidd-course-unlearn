@@ -64,7 +64,7 @@ const motionAnimate = {
           :transition="{ duration: 0.6, delay: 0.1 }"
         >
           <NuxtLink
-            to="#teachers"
+            to="/teachers"
             data-testid="hero-teachers-badge"
             class="group inline-flex items-center gap-3 rounded-full border border-mentora-500/40 bg-elevated/40 py-1.5 pl-1.5 pr-4 text-xs text-highlighted dark:bg-midnight-900/60 sm:text-sm backdrop-blur transition hover:border-mentora-500/70"
           >

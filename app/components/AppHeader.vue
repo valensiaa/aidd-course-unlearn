@@ -49,7 +49,7 @@ const menuClose = { 'data-testid': 'mobile-menu-close' } as ButtonProps
 
       <div class="flex items-center gap-2">
         <UButton
-          to="/#teachers"
+          to="/teachers"
           data-testid="header-find-teacher"
           trailing-icon="i-lucide-arrow-right"
           class="bg-gradient-brand btn-glow rounded-full px-5 py-2 font-semibold text-white transition hover:opacity-90 max-sm:hidden"
@@ -90,7 +90,7 @@ const menuClose = { 'data-testid': 'mobile-menu-close' } as ButtonProps
                 <ColorModeButton />
               </div>
               <UButton
-                to="/#teachers"
+                to="/teachers"
                 data-testid="mobile-menu-find-teacher"
                 trailing-icon="i-lucide-arrow-right"
                 size="lg"

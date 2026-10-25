@@ -20,7 +20,7 @@ test.describe('Page loading', () => {
       await expect(page.getByTestId('page-title')).toHaveText(h1, { useInnerText: true })
 
       await expect(page.getByTestId('site-header')).toBeVisible()
-      await expect(page.getByTestId('header-find-teacher')).toHaveAttribute('href', '/#teachers')
+      await expect(page.getByTestId('header-find-teacher')).toHaveAttribute('href', '/teachers')
       await expect(page.getByTestId('site-footer')).toBeVisible()
       await expect(page.getByTestId('footer-link-discord')).toBeVisible()
       await expect(page.getByTestId('footer-link-x')).toBeVisible()
