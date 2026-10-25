@@ -35,3 +35,6 @@ logs
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Original source photos; the site uses the processed cut-outs
+public/persons/raw-photos/
