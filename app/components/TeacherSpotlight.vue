@@ -15,6 +15,11 @@ const { global } = useAppConfig()
 const mailto = (subject: string) => `mailto:${global.email}?subject=${encodeURIComponent(subject)}`
 const bookingLink = computed(() => mailto(`Book a class with ${props.teacher.name}`))
 const questionLink = computed(() => mailto(`A question for ${props.teacher.name}`))
+
+// The spotlight teacher changes with the search and filters, so its photo is often one the
+// static build never resized. Serve the original instead (already a small 3:4 WebP)
+const { baseURL } = useRuntimeConfig().app
+const photoSrc = computed(() => props.teacher.photo && `${baseURL}${props.teacher.photo.src.replace(/^\//, '')}`)
 </script>
 
 <template>
@@ -31,15 +36,14 @@ const questionLink = computed(() => mailto(`A question for ${props.teacher.name}
         :outline="false"
         class="w-full max-w-52 sm:absolute sm:inset-y-0 sm:left-1/2 sm:w-auto sm:max-w-none sm:-translate-x-1/2"
       >
-        <NuxtImg
-          v-if="teacher.photo"
-          :src="teacher.photo.src"
+        <img
+          v-if="teacher.photo && photoSrc"
+          :src="photoSrc"
           :alt="teacher.photo.alt"
           width="240"
           height="320"
-          densities="x1 x2"
           class="h-[78%] w-auto object-contain object-bottom sm:h-[85%]"
-        />
+        >
         <PersonPlaceholder
           v-else
           class="h-[85%] w-auto"

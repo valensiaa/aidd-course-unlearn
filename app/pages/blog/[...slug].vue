@@ -21,7 +21,7 @@ const blogNavigation = computed(() => navigation.value.find(item => item.path ==
 const breadcrumb = computed(() => mapContentNavigation(findPageBreadcrumb(blogNavigation?.value, page.value?.path)).map(({ icon, ...link }) => link))
 
 if (page.value.image) {
-  defineOgImage({ url: page.value.image })
+  defineOgImage({ url: withSiteUrl(page.value.image, { withBase: true }).value, alt: page.value.title })
 } else {
   defineOgImageComponent('Blog', {
     headline: breadcrumb.value.map(item => item.label).join(' > ')

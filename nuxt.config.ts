@@ -30,6 +30,8 @@ export default defineNuxtConfig({
       routes: [
         '/'
       ],
+      // Development-only preview page, a 404 in production
+      ignore: ['/blobs'],
       crawlLinks: true
     }
   },
@@ -40,6 +42,14 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  // The site is published as static files (GitHub Pages), so there's no server to render
+  // icons on request: bundle the ones the app uses into the client
+  icon: {
+    clientBundle: {
+      scan: true
     }
   }
 })

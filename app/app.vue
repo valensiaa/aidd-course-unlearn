@@ -3,6 +3,9 @@ const colorMode = useColorMode()
 
 const color = computed(() => colorMode.value === 'dark' ? '#121619' : 'white')
 
+// The site may be served from a subpath (GitHub Pages), so public files need the base URL
+const { baseURL } = useRuntimeConfig().app
+
 useHead({
   meta: [
     { charset: 'utf-8' },
@@ -10,17 +13,23 @@ useHead({
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: `${baseURL}favicon.ico` }
   ],
   htmlAttrs: {
     lang: 'en'
   }
 })
 
+// Link preview (LinkedIn, X, Slack…) for every page: the home page hero at 1200×630.
+// Blog articles set their own. Crawlers need the full URL
+const ogImage = withSiteUrl('/og-image.jpg', { withBase: true }).value
+const ogImageAlt = 'Mentora: learn anything, one-on-one with a teacher who gets you'
+
 useSeoMeta({
   // Brand suffix, unless the page title already names Mentora (like the home page's)
   titleTemplate: title => !title || title.includes('Mentora') ? (title || 'Mentora') : `${title} · Mentora`,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
+  ogImage: { url: ogImage, width: 1200, height: 630, type: 'image/jpeg', alt: ogImageAlt },
+  twitterImage: { url: ogImage, alt: ogImageAlt },
   twitterCard: 'summary_large_image'
 })
 
