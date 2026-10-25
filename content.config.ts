@@ -127,7 +127,6 @@ export default defineContentConfig({
       type: 'page',
       source: 'events.yml',
       schema: z.object({
-        links: z.array(createButtonSchema()),
         events: z.array(z.object({
           category: z.enum(['Webinar', 'Workshop', 'Podcast']),
           title: z.string(),

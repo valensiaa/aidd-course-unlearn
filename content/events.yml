@@ -1,8 +1,5 @@
 title: Free events for curious learners
 description: Live webinars, hands-on workshops and podcast conversations with Mentora teachers and students. Free to join, wherever you are.
-links:
-  - label: Suggest a topic
-    icon: i-lucide-lightbulb
 events:
   - category: Webinar
     title: "How to choose the right teacher for you"

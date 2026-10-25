@@ -66,7 +66,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 **Expected Results:**
 - Banner contains the "Mentora home" link, a navigation with Home, Subjects, Events, Blog, About, the theme toggle
   button and a "Find a teacher" link to `/teachers`.
-- Footer contains links "Mentora on Discord", "Mentora on X", "Mentora on GitHub".
+- Footer shows the credits ("© <year> Mentora"); it has no social links.
 - Every page except blog articles ends with the CTA heading "Your next breakthrough is one lesson away".
 
 ---
@@ -193,17 +193,11 @@ action, a mobile slide-over menu, and a custom 404 page.
 
 **Expected Results:**
 - 6 teacher cards: Sofía Herrera, David Okafor, Mei Tanaka, Liam O'Connor, Priya Nair, Marcus Bennett.
-- Each has a "Book a class with <name>" button.
 
-#### 5.4 "Book a class" opens a booking email
+#### 5.4 (Removed) "Book a class" booking email
 
-**Steps:**
-1. Navigate to `/`.
-2. Inspect each teacher's "Book a class" button.
-
-**Expected Results:**
-- Each button links to `mailto:hello@mentora.com?subject=Book a class with <teacher name>` (URL-encoded).
-- There is no in-app booking flow yet; email is the interim channel, like "Become a teacher".
+The "Book a class" and "Ask a question" buttons emailed `hello@mentora.com`, a domain Mentora doesn't own,
+so they were removed until there is a real booking flow.
 
 #### 5.5 Testimonials carousel navigation and wrap-around
 
@@ -235,14 +229,15 @@ action, a mobile slide-over menu, and a custom 404 page.
   methods do you accept?". Only one tab has `aria-selected="true"`.
 - Step 6: focus and selection move to "For Teachers".
 
-#### 5.7 Bottom CTA "Become a teacher" is a mailto link
+#### 5.7 Bottom CTA "Find a teacher" opens the teachers page
 
 **Steps:**
 1. Navigate to `/`, scroll to "Your next breakthrough is one lesson away".
+2. Click "Find a teacher".
 
 **Expected Results:**
-- "Become a teacher" has `href="mailto:hello@mentora.com?subject=I want to teach on Mentora"`.
-- "Find a teacher" points to the `/teachers` page.
+- "Find a teacher" is the only button (no "Become a teacher": there is no teacher sign-up yet).
+- User lands on `/teachers` with the teacher search visible.
 
 ---
 
@@ -285,7 +280,6 @@ action, a mobile slide-over menu, and a custom 404 page.
 - "Coming up next" lists 4 events in date order (Nov 12, Nov 26, Dec 3, Jan 21), each with a `<time>`, type
   (e.g. "Webinar"), title, description and location.
 - "Catch up on past events" lists 5 events, newest first (October 8, 2026 → August 20, 2026).
-- "Suggest a topic" has `href="mailto:hello@mentora.com?subject=Event topic suggestion"`.
 
 ---
 
@@ -405,7 +399,7 @@ action, a mobile slide-over menu, and a custom 404 page.
 
 | # | Issue | Scenario | Status |
 |---|---|---|---|
-| 1 | "Book a class" buttons had no action | 5.4 | Fixed: opens a booking email |
+| 1 | "Book a class" buttons had no action | 5.4 | Removed: the interim email went to a domain Mentora doesn't own |
 | 2 | Blog prev/next ordered by file name, not by date | 8.5 | Fixed: surround query sorted by date |
 | 3 | Bottom-CTA "Find a teacher" was a dead anchor on every page except `/` | 10.2 | Fixed: links to `/teachers` |
 | 4 | Copy: "Find a exams & writing teacher" | 6.2 | Open |
@@ -414,4 +408,4 @@ action, a mobile slide-over menu, and a custom 404 page.
 
 - `/blobs` internal showcase page (only a load smoke check is worthwhile).
 - Visual regression of animated blobs and parallax.
-- External destinations (Discord/X/GitHub, `mailto:`): assert `href` only, don't follow.
+- External destinations: assert `href` only, don't follow.

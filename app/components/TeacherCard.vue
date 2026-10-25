@@ -3,7 +3,7 @@ import type { IndexCollectionItem } from '@nuxt/content'
 
 export type Teacher = IndexCollectionItem['teachers']['items'][number]
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   teacher: Teacher
   /** Blob behind the portrait; vary it across a grid of cards (the open `halo` doesn't suit a photo) */
   blob?: BlobVariantName
@@ -13,16 +13,12 @@ const props = withDefaults(defineProps<{
 
 // In a grid of cards, only the hovered card's blob moves, at the hero's hover speed
 const hovered = ref(false)
-
-// No booking flow yet: booking requests go to Mentora by email
-const { global } = useAppConfig()
-const bookingLink = computed(() => `mailto:${global.email}?subject=${encodeURIComponent(`Book a class with ${props.teacher.name}`)}`)
 </script>
 
 <template>
   <article
     data-testid="teacher-card"
-    class="group flex h-full flex-col gap-5 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
+    class="flex h-full flex-col gap-5 rounded-2xl bg-elevated/40 p-6 ring-1 ring-default transition hover:ring-mentora-500/40"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   >
@@ -85,21 +81,6 @@ const bookingLink = computed(() => `mailto:${global.email}?subject=${encodeURICo
       <p class="line-clamp-3 text-sm leading-relaxed text-muted">
         {{ teacher.bio }}
       </p>
-    </div>
-
-    <!-- Row 3: the button, pinned to the bottom so rows line up. On devices with hover it
-         appears when the card is hovered or focused; touch screens always show it.
-         The row keeps its space, so the card never changes height. -->
-    <div class="mt-auto pt-1 transition duration-300 [@media(hover:hover)]:translate-y-1 [@media(hover:hover)]:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
-      <UButton
-        label="Book a class"
-        :aria-label="`Book a class with ${teacher.name}`"
-        data-testid="teacher-book"
-        :to="bookingLink"
-        size="md"
-        trailing-icon="i-lucide-arrow-right"
-        class="bg-gradient-brand btn-glow rounded-full text-white transition hover:opacity-90"
-      />
     </div>
   </article>
 </template>

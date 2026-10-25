@@ -29,9 +29,6 @@ useSeoMeta({
   ogDescription: page.value?.seo?.description || page.value?.description
 })
 
-const { global } = useAppConfig()
-const [suggestLink] = page.value.links
-
 const CATEGORY_ICONS: Record<MentoraEvent['category'], string> = {
   Webinar: 'i-lucide-monitor-play',
   Workshop: 'i-lucide-users',
@@ -60,21 +57,7 @@ const formatFull = (date: string) => new Date(date).toLocaleDateString('en-US', 
       :title="page.title"
       :description="page.description"
       :highlight="2"
-    >
-      <template #actions>
-        <UButton
-          v-if="suggestLink"
-          data-testid="events-suggest-topic"
-          :to="`mailto:${global.email}?subject=Event topic suggestion`"
-          :icon="suggestLink.icon"
-          trailing-icon="i-lucide-arrow-right"
-          size="xl"
-          class="bg-gradient-brand btn-glow rounded-full px-8 py-4 text-base font-semibold text-white transition hover:opacity-90"
-        >
-          {{ suggestLink.label }}
-        </UButton>
-      </template>
-    </PageHero>
+    />
 
     <!-- Upcoming -->
     <section

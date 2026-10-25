@@ -22,9 +22,6 @@ test.describe('Page loading', () => {
       await expect(page.getByTestId('site-header')).toBeVisible()
       await expect(page.getByTestId('header-find-teacher')).toHaveAttribute('href', '/teachers')
       await expect(page.getByTestId('site-footer')).toBeVisible()
-      await expect(page.getByTestId('footer-link-discord')).toBeVisible()
-      await expect(page.getByTestId('footer-link-x')).toBeVisible()
-      await expect(page.getByTestId('footer-link-github')).toBeVisible()
       await expect(page.getByTestId('cta-section')).toContainText('Your next breakthrough is one lesson away')
     })
   }

@@ -16,13 +16,6 @@ test.describe('Teachers page', () => {
     await expect(page.getByTestId('teacher-card')).toHaveCount(19)
   })
 
-  test('the spotlight\'s "Book a class" opens a booking email for that teacher', async ({ page }) => {
-    await expect(page.getByTestId('teacher-spotlight').getByTestId('spotlight-book')).toHaveAttribute(
-      'href',
-      `mailto:hello@mentora.com?subject=${encodeURIComponent('Book a class with Sofía Herrera')}`
-    )
-  })
-
   test('searching filters teachers by name, subject or bio', async ({ page }) => {
     const search = page.getByTestId('teacher-search')
 
