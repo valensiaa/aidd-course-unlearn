@@ -3,9 +3,10 @@
 // blob. The blob is anchored low in a 4:5 frame so the head can rise above it, and the flat
 // cut at the bottom of the photo fades out. Hovering speeds the blob up.
 //
-// Usage: pass the cut-out as the slot, bottom-aligned and fitted to the frame's height:
+// Usage: pass a 3:4 chest-up cut-out as the slot, bottom-aligned at 78% of the frame's
+// height so the blob still shows around it:
 //   <BlobPortrait variant="shard">
-//     <NuxtImg src="/people/sofia.png" alt="Sofía Herrera" class="h-full w-auto object-contain object-bottom" />
+//     <NuxtImg src="/people/sofia.webp" alt="Sofía Herrera" class="h-[78%] w-auto object-contain object-bottom" />
 //   </BlobPortrait>
 withDefaults(defineProps<{
   variant?: BlobVariantName

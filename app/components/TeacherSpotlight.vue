@@ -22,21 +22,23 @@ const questionLink = computed(() => mailto(`A question for ${props.teacher.name}
     data-testid="teacher-spotlight"
     class="glass-warm grid overflow-hidden rounded-3xl sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
   >
-    <!-- Portrait: the cut-out stands in front of a blob, like the home page hero -->
-    <div class="relative flex items-end justify-center px-10 pt-10 sm:px-6 sm:pt-8">
+    <!-- Portrait: the cut-out stands in front of a blob, like the home page hero. Side by
+         side with the text, the portrait's frame takes the card's full height, so the blob
+         and photo fill about 80% of it -->
+    <div class="relative flex items-end justify-center px-10 pt-10 sm:p-0">
       <BlobPortrait
         :variant="blob"
         :outline="false"
-        class="w-full max-w-52 sm:max-w-64"
+        class="w-full max-w-52 sm:absolute sm:inset-y-0 sm:left-1/2 sm:w-auto sm:max-w-none sm:-translate-x-1/2"
       >
         <NuxtImg
           v-if="teacher.photo"
           :src="teacher.photo.src"
           :alt="teacher.photo.alt"
-          width="256"
+          width="240"
           height="320"
           densities="x1 x2"
-          class="h-[62%] w-auto object-contain object-bottom [mask-image:linear-gradient(to_bottom,transparent,black_7%)]"
+          class="h-[78%] w-auto object-contain object-bottom sm:h-[85%]"
         />
         <PersonPlaceholder
           v-else

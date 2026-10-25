@@ -36,16 +36,15 @@ const bookingLink = computed(() => `mailto:${global.email}?subject=${encodeURICo
           :outline="false"
           class="pointer-events-none absolute inset-0 -z-10"
         />
-        <!-- The photo is smaller than the blob and lifted off its bottom edge, so the whole
-             blob shows around it. The mask fades the photo's bottom cut onto the blob, and
-             softens the top for photos whose hair was cropped flat -->
-        <div class="absolute inset-x-0 bottom-[13%] flex h-[62%] justify-center [mask-image:linear-gradient(to_bottom,transparent,black_7%,black_68%,transparent)]">
+        <!-- Like <BlobPortrait>: the photo is taller than the blob, so the head rises above
+             the blob's top, and its flat cut at the bottom fades out -->
+        <div class="absolute inset-x-0 bottom-0 flex h-[112%] justify-center [mask-image:linear-gradient(to_bottom,black_82%,transparent)]">
           <NuxtImg
             v-if="teacher.photo"
             :src="teacher.photo.src"
             :alt="teacher.photo.alt"
-            width="96"
-            height="96"
+            width="81"
+            height="108"
             densities="x1 x2"
             loading="lazy"
             class="h-full w-auto object-contain object-bottom"
