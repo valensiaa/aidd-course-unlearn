@@ -41,8 +41,8 @@ howItWorks:
   title: How Mentora works
   description: "From first search to your first lesson in minutes. No subscriptions, no commitments — just learning that fits your life."
   image:
-    src: /persons/cutouts/young-woman.webp
-    alt: A smiling young woman with shoulder-length brown hair
+    src: /persons/teachers-png/young-woman-tshirt.webp
+    alt: A smiling young woman with long wavy red-brown hair and crossed arms
   steps:
     - icon: i-lucide-search
       title: Find your teacher
@@ -72,7 +72,7 @@ teachers:
         src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Sofía Herrera
       photo:
-        src: /persons/cutouts/young-woman.webp
+        src: /persons/teachers-png/young-woman-tshirt.webp
         alt: Sofía Herrera
     - name: David Okafor
       subject: Mathematics & Physics
@@ -86,7 +86,7 @@ teachers:
         src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: David Okafor
       photo:
-        src: /persons/cutouts/young-man.webp
+        src: /persons/teachers-png/young-man-sweater.webp
         alt: David Okafor
     - name: Mei Tanaka
       subject: Japanese for Beginners
@@ -100,7 +100,7 @@ teachers:
         src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Mei Tanaka
       photo:
-        src: /persons/cutouts/woman-glasses.webp
+        src: /persons/teachers-png/young-woman-tshirt.webp
         alt: Mei Tanaka
     - name: Liam O'Connor
       subject: Guitar & Music Theory
@@ -114,7 +114,7 @@ teachers:
         src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Liam O'Connor
       photo:
-        src: /persons/cutouts/man-glasses.webp
+        src: /persons/teachers-png/man-glasses-blue-shirt.webp
         alt: Liam O'Connor
     - name: Priya Nair
       subject: Python & Data Science
@@ -127,6 +127,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Priya Nair
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Priya Nair
     - name: Marcus Bennett
       subject: IELTS & English Writing
       subjects: [languages, exams-and-writing]
@@ -137,6 +140,9 @@ teachers:
       featured: true
       avatar:
         src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Marcus Bennett
+      photo:
+        src: /persons/teachers-png/young-man-sweater.webp
         alt: Marcus Bennett
     - name: Amara Diallo
       subject: French & Conversation
@@ -149,6 +155,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Amara Diallo
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Amara Diallo
     - name: Tomás Silva
       subject: Chemistry
       subjects: [sciences]
@@ -159,6 +168,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Tomás Silva
+      photo:
+        src: /persons/teachers-png/man-glasses-blue-shirt.webp
         alt: Tomás Silva
     - name: Hannah Weber
       subject: German for All Levels
@@ -171,6 +183,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Hannah Weber
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Hannah Weber
     - name: Kenji Watanabe
       subject: Piano & Composition
       subjects: [music]
@@ -181,6 +196,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Kenji Watanabe
+      photo:
+        src: /persons/teachers-png/young-man-sweater.webp
         alt: Kenji Watanabe
     - name: Elena Popescu
       subject: Algebra & Geometry
@@ -193,6 +211,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Elena Popescu
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Elena Popescu
     - name: Omar Haddad
       subject: Arabic for Beginners
       subjects: [languages]
@@ -203,6 +224,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Omar Haddad
+      photo:
+        src: /persons/teachers-png/man-glasses-blue-shirt.webp
         alt: Omar Haddad
     - name: Grace Mensah
       subject: Biology & Life Sciences
@@ -215,6 +239,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Grace Mensah
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Grace Mensah
     - name: Lucas Moreau
       subject: JavaScript & Web Development
       subjects: [coding-and-data]
@@ -225,6 +252,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Lucas Moreau
+      photo:
+        src: /persons/teachers-png/young-man-sweater.webp
         alt: Lucas Moreau
     - name: Isabella Rossi
       subject: Italian Language & Culture
@@ -237,6 +267,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Isabella Rossi
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Isabella Rossi
     - name: Daniel Kim
       subject: SAT & ACT Prep
       subjects: [exams-and-writing]
@@ -247,6 +280,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Daniel Kim
+      photo:
+        src: /persons/teachers-png/man-glasses-blue-shirt.webp
         alt: Daniel Kim
     - name: Chloé Laurent
       subject: Singing & Vocal Technique
@@ -259,6 +295,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Chloé Laurent
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Chloé Laurent
     - name: Rahul Mehta
       subject: Statistics & Excel
       subjects: [mathematics, coding-and-data]
@@ -269,6 +308,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Rahul Mehta
+      photo:
+        src: /persons/teachers-png/young-man-sweater.webp
         alt: Rahul Mehta
     - name: Zoe Papadopoulos
       subject: Academic Essay Writing
@@ -281,6 +323,9 @@ teachers:
       avatar:
         src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         alt: Zoe Papadopoulos
+      photo:
+        src: /persons/teachers-png/young-woman-tshirt.webp
+        alt: Zoe Papadopoulos
     - name: Ahmed Rahman
       subject: Physics for High School
       subjects: [sciences]
@@ -291,6 +336,9 @@ teachers:
       featured: false
       avatar:
         src: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        alt: Ahmed Rahman
+      photo:
+        src: /persons/teachers-png/man-glasses-blue-shirt.webp
         alt: Ahmed Rahman
 testimonials:
   title: Loved by learners everywhere

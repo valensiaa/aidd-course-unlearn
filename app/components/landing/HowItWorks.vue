@@ -38,7 +38,7 @@ const titleParts = computed(() => highlightTitle(props.page.howItWorks.title))
             v-if="page.howItWorks.image"
             :src="page.howItWorks.image.src"
             :alt="page.howItWorks.image.alt"
-            class="h-[62%] w-auto object-contain object-bottom"
+            class="h-[78%] w-auto object-contain object-bottom"
           />
           <PersonPlaceholder
             v-else
