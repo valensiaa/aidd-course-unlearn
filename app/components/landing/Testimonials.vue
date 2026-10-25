@@ -52,6 +52,7 @@ useSwipe(stage, {
 <template>
   <section
     id="testimonials"
+    data-testid="testimonials-section"
     class="relative isolate overflow-hidden py-20 sm:py-28"
   >
     <!-- Blobs behind the cards (they show through the glass): a smaller one at the bottom

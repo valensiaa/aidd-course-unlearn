@@ -77,6 +77,7 @@ const frame = computed(() => {
 <template>
   <div
     aria-hidden="true"
+    data-testid="blob-backdrop"
     class="will-change-transform"
   >
     <!-- will-change gives the blob its own compositing layer: repainting it each frame then

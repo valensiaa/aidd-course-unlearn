@@ -27,6 +27,7 @@ function onTabKeydown(event: KeyboardEvent) {
 <template>
   <section
     id="faq"
+    data-testid="faq-section"
     class="relative isolate overflow-hidden py-20 sm:py-28"
   >
     <UContainer class="max-w-7xl grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">

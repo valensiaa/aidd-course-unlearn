@@ -37,6 +37,7 @@ const motionAnimate = {
 
 <template>
   <section
+    data-testid="hero-section"
     class="relative isolate overflow-x-clip"
     @mouseenter="blobsFast = true"
     @mouseleave="blobsFast = false"

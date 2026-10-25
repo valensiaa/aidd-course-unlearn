@@ -18,6 +18,7 @@ const titleParts = computed(() => highlightTitle(props.page.howItWorks.title))
 <template>
   <section
     id="how-it-works"
+    data-testid="how-it-works-section"
     class="relative py-20 sm:py-28"
   >
     <UContainer class="max-w-7xl grid items-center gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
