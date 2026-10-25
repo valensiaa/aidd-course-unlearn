@@ -19,9 +19,6 @@ const slots = defineSlots<{
 }>()
 
 const titleParts = computed(() => highlightTitle(props.title, props.highlight))
-
-const motionInitial = { y: 24, opacity: 0, filter: 'blur(12px)' }
-const motionAnimate = { y: 0, opacity: 1, filter: 'blur(0px)' }
 </script>
 
 <template>
@@ -39,21 +36,19 @@ const motionAnimate = { y: 0, opacity: 1, filter: 'blur(0px)' }
       :class="slots.visual ? 'lg:grid-cols-[1fr_0.9fr] lg:gap-16' : ''"
     >
       <div class="max-w-2xl">
-        <Motion
+        <div
           v-if="eyebrow"
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.05 }"
+          class="hero-enter"
+          style="--enter-delay: 50ms"
         >
           <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-elevated/40 px-4 py-1.5 text-sm font-medium text-mentora-400 ring-1 ring-mentora-500/40 backdrop-blur dark:bg-midnight-900/60">
             {{ eyebrow }}
           </p>
-        </Motion>
+        </div>
 
-        <Motion
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.1 }"
+        <div
+          class="hero-enter"
+          style="--enter-delay: 100ms"
         >
           <h1
             data-testid="page-title"
@@ -61,40 +56,36 @@ const motionAnimate = { y: 0, opacity: 1, filter: 'blur(0px)' }
           >
             {{ titleParts.lead }} <span class="text-gradient-brand">{{ titleParts.highlight }}</span>
           </h1>
-        </Motion>
+        </div>
 
-        <Motion
+        <div
           v-if="description"
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.2 }"
+          class="hero-enter"
+          style="--enter-delay: 200ms"
         >
           <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
             {{ description }}
           </p>
-        </Motion>
+        </div>
 
-        <Motion
+        <div
           v-if="slots.actions"
-          :initial="motionInitial"
-          :animate="motionAnimate"
-          :transition="{ duration: 0.6, delay: 0.3 }"
+          class="hero-enter"
+          style="--enter-delay: 300ms"
         >
           <div class="mt-10 flex flex-wrap items-center gap-4">
             <slot name="actions" />
           </div>
-        </Motion>
+        </div>
       </div>
 
-      <Motion
+      <div
         v-if="slots.visual"
-        :initial="{ scale: 0.95, opacity: 0, filter: 'blur(20px)' }"
-        :animate="{ scale: 1, opacity: 1, filter: 'blur(0px)' }"
-        :transition="{ duration: 0.8, delay: 0.3 }"
-        class="relative mx-auto w-full max-w-md lg:max-w-none"
+        class="hero-enter-visual relative mx-auto w-full max-w-md lg:max-w-none"
+        style="--enter-delay: 300ms"
       >
         <slot name="visual" />
-      </Motion>
+      </div>
     </UContainer>
   </section>
 </template>
