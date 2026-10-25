@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+# Builds the site as static files and publishes it at
+# https://<owner>.github.io/<repository>/ on every push to main.
+# One-time setup: repository Settings → Pages → Source: "GitHub Actions".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only what publishing to Pages needs
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push waits instead of cancelling a deploy in progress
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate static site
+        run: npm run generate
+        env:
+          # Project pages are served from /<repository>/, not the domain root
+          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
+          # Absolute URLs for link previews (og:image); the base path is added from NUXT_APP_BASE_URL
+          NUXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io
+          NITRO_PRESET: github_pages
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
